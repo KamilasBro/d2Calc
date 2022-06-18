@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="D2Calc.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diablo 2 Resurrected Calculator</title>
+</head>
+<body>
+    <!-- Navigation bar -->
+    <nav class="navbar" id="navbar">
+        <ul class="navbar-nav">
+            <div id="refresh2"></div><!-- needed cuz during refreshing little square is visible-->
+            <li class="Logo">
+                <span href="#" class="nav-linkLogo">
+                    <img src="images/Navbar/Logo.png" alt="Logo">
+                    <span class="link-text" id="jd">Calculator</span>
+                </span>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link" id="Menulink">
+                    <img src="images/Navbar/menuimg.png" alt="Logo">
+                    <span class="link-text" id="jd">Classes</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link" id="Skills">
+                    <img src="images/Navbar/skilltreeimg.png" alt="Logo">
+                    <span class="link-text" id="jd">SkillTrees</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link" id="Equipment">
+                    <img src="images/Navbar/equipmentimg.png" alt="Logo">
+                    <span class="link-text" id="jd">Equipment</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link" id="Statistics">
+                    <img src="images/Navbar/statsimg.png" alt="Logo">
+                    <span class="link-text" id="jd">Statistics</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link" id="Mercenary">
+                    <img src="images/Navbar/mercenaryimg.png" alt="Logo">
+                    <span class="link-text" id="jd">Mercenary</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <div id="refresh"></div><!-- needed cuz during refreshing some loading things are visible-->
+    <!-- Main Content -->
+    <main id="main">
+        <div class="reminder" id="reminder">
+            <span class="reminderText1">Reminder</span><br>
+            <span class="reminderText2" id="reminderText2">You must set your level first !</span>
+        </div>
+        <!-- to make one .js file pepeHands -->
+        <span id="classPicked">Amazon</span>
+        <!-- Skill trees page -->
+        <span class="skillTreePage" id="skillTreePage">
+            <p class="avalibleSkillPoints">Avalible skill points: <span id="avalibleSkillPoints"></span></p>
+            <div class="preSkillTree">
+                <!-- Skill tree section 1 -->
+            <div class="skillTree">
+                <!-- Amazon skill tree 1 -->
+                <span id="skillTree1">
+                <span class="amazonSkillTree" id="amazonSkillTree1">
+                    <span class="skillCounter" id="skillCounter">            
+                        <div class="skillCounter1" id="skillCounter1"></div> 
+                        <div class="skillCounter2" id="skillCounter2"></div>
+                        <div class="skillCounter3" id="skillCounter3"></div>
+                        <div class="skillCounter4" id="skillCounter4"></div>
+                        <div class="skillCounter5" id="skillCounter5"></div>
+                        <div class="skillCounter6" id="skillCounter6"></div>
+                        <div class="skillCounter7" id="skillCounter7"></div>
+                        <div class="skillCounter8" id="skillCounter8"></div>
+                        <div class="skillCounter9" id="skillCounter9"></div>
+                        <div class="skillCounter10" id="skillCounter10"></div>
+                    </span>
+                    <span class="skillButton">
+                        <div class="skillButton1" id="skillButton1"></div>
+                        <div class="skillButton2" id="skillButton2"></div>
+                        <div class="skillButton3" id="skillButton3"></div>
+                        <div class="skillButton4" id="skillButton4"></div>
+                        <div class="skillButton5" id="skillButton5"></div>
+                        <div class="skillButton6" id="skillButton6"></div>
+                        <div class="skillButton7" id="skillButton7"></div>
+                        <div class="skillButton8" id="skillButton8"></div>
+                        <div class="skillButton9" id="skillButton9"></div>
+                        <div class="skillButton10" id="skillButton10"></div>
+                    </span>
+                </span>
+                </span>
+                <!-- Skill tree image 1 -->
+                <img src="images/Amazonskills/1.png" alt="">
+                <!-- Level counter-->
+                <p>Level:<span id="lvlCounter"></span><input type="text" id="level"><button type="button" id="lvlButton">OK</button></p>
+                <!-- Normal Quests -->
+                <p class="quests">Normal quests</p>
+                <div class="questNames">
+                    <p>Den of Evil <button id="normalDenofEvil">✓</button></p>
+                    <p>Radament's Lair <button id="normalRadament">✓</button></p>
+                    <p>Fallen Angel <button id="normalAngel">✓</button></p>
+                </div>
+            </div>
+            <!-- Skill tree section 2 -->
+            <div class="skillTree">
+                <!-- Amazon skill tree 2 -->
+                <span id="skillTree2">
+                <span class="amazonSkillTree" id="amazonSkillTree2">
+                    <span class="skillCounter" id="skillCounter">            
+                        <div class="skillCounter11" id="skillCounter11"></div>
+                        <div class="skillCounter12" id="skillCounter12"></div>
+                        <div class="skillCounter13" id="skillCounter13"></div>
+                        <div class="skillCounter14" id="skillCounter14"></div>
+                        <div class="skillCounter15" id="skillCounter15"></div>
+                        <div class="skillCounter16" id="skillCounter16"></div>
+                        <div class="skillCounter17" id="skillCounter17"></div>
+                        <div class="skillCounter18" id="skillCounter18"></div>
+                        <div class="skillCounter19" id="skillCounter19"></div>
+                        <div class="skillCounter20" id="skillCounter20"></div>
+                    </span>
+                    <span class="skillButton">
+                        <div class="skillButton11" id="skillButton11"></div>
+                        <div class="skillButton12" id="skillButton12"></div>
+                        <div class="skillButton13" id="skillButton13"></div>
+                        <div class="skillButton14" id="skillButton14"></div>
+                        <div class="skillButton15" id="skillButton15"></div>
+                        <div class="skillButton16" id="skillButton16"></div>
+                        <div class="skillButton17" id="skillButton17"></div>
+                        <div class="skillButton18" id="skillButton18"></div>
+                        <div class="skillButton19" id="skillButton19"></div>
+                        <div class="skillButton20" id="skillButton20"></div>
+                    </span>
+                </span>
+            </span>
+                <!-- Skill tree image 2 -->
+                <img src="images/Amazonskills/2.png" alt="">
+                <!-- + to skills counter -->
+                <p>Current +Skill: <span id="plusToSkills"></span></p>
+                <!-- Nightmare quests -->
+                <p class="quests">Nightmare quests</p>
+                <div class="questNames">
+                    <p>Den of Evil <button id="nightmareDenofEvil">✓</button></p>
+                    <p>Radament's Lair <button id="nightmareRadament">✓</button></p>
+                    <p>Fallen Angel <button id="nightmareAngel">✓</button></p>
+                </div>
+            </div>
+            <!-- Skill tree section 3 -->
+            <div class="skillTree">
+                <!-- Amazon skill tree 3 -->
+                <span id="skillTree3">
+                <span class="amazonSkillTree" id="amazonSkillTree3">
+                    <span class="skillCounter" id="skillCounter">            
+                        <div class="skillCounter21" id="skillCounter21"></div>
+                        <div class="skillCounter22" id="skillCounter22"></div>
+                        <div class="skillCounter23" id="skillCounter23"></div>
+                        <div class="skillCounter24" id="skillCounter24"></div>
+                        <div class="skillCounter25" id="skillCounter25"></div>
+                        <div class="skillCounter26" id="skillCounter26"></div>
+                        <div class="skillCounter27" id="skillCounter27"></div>
+                        <div class="skillCounter28" id="skillCounter28"></div>
+                        <div class="skillCounter29" id="skillCounter29"></div>
+                        <div class="skillCounter30" id="skillCounter30"></div>
+                    </span>
+                    <span class="skillButton">
+                        <div class="skillButton21" id="skillButton21"></div>
+                        <div class="skillButton22" id="skillButton22"></div>
+                        <div class="skillButton23" id="skillButton23"></div>
+                        <div class="skillButton24" id="skillButton24"></div>
+                        <div class="skillButton25" id="skillButton25"></div>
+                        <div class="skillButton26" id="skillButton26"></div>
+                        <div class="skillButton27" id="skillButton27"></div>
+                        <div class="skillButton28" id="skillButton28"></div>
+                        <div class="skillButton29" id="skillButton29"></div>
+                        <div class="skillButton30" id="skillButton30"></div>
+                    </span>
+                </span>
+            </span>
+                <!-- Skill tree image 3 -->
+                <img src="images/Amazonskills/3.png" alt="">
+                <!-- Reset button -->
+                <br> <button class="reset" id="reset">Reset</button>
+                <!-- Hell quests -->
+                <p class="quests">Hell quests</p>
+                <div class="questNames">
+                    <p>Den of Evil <button id="hellDenofEvil">✓</button></p>
+                    <p>Radament's Lair <button id="hellRadament">✓</button></p>
+                    <p>Fallen Angel <button id="hellAngel">✓</button></p>
+                </div>
+            </div>
+        </div>
+        <!-- Skill description -->
+        <div class="skillDescription">
+            <p>Description</p>
+            <div id="descriptionContent">
+                <p id="skillName"></p><br>
+                <span id="infoColor">
+                <span id="skillDescription"></span><br>
+                <span id="reqLvl"></span><br><br>
+                <span id="currentSkillInfo"></span>
+                <span id="nextSkillInfo"></span>
+                <span id="bonuses"></span>
+            </span>
+            </div>
+        </div>
+        </span>
+    </main>
+    <!-- Refresh screen -->
+    <div class="loader-wrapper">
+        <span class="loader"><img src="images/refreshImg.webp" alt=""></span>
+      </div>
+    <script src="D2Calc.js"></script>
+</body>
+</html>

@@ -1,0 +1,2900 @@
+/* Basic and other */
+body{
+    color: black;
+    background: url(images/bg.jpg);
+    background-color: rgb(2, 2, 2);
+    margin: 0;
+    padding: 0;  
+}
+#refresh2{
+    height: 10%;
+    width: 10%;
+    position: fixed;
+    background-color: rgb(2, 2, 2);
+}
+#refresh{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: rgb(2, 2, 2);
+}
+@font-face {
+    font-family: 'Exocet Light';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Diablo Heavy'), url('diablo.woff') format('woff');
+    }
+@keyframes glow{
+    from
+    {
+        box-shadow: 0 0 6px #fff, 0 0 10px red, 0 0 13px rgb(228, 2, 2), 0 0 16px 
+        rgb(196, 2, 2), 0 0 20px rgb(170, 2, 2), 0 0 23px rgb(143, 2, 2), 0 0 26px rgb(114, 0, 0);
+    }
+    to{
+        box-shadow: 0 0 3px #fff, 0 0 6px #fff, 0 0 10px rgb(255, 183, 0), 0 0 13px 
+        rgb(219, 157, 0), 0 0 16px rgb(204, 146, 0), 0 0 20px rgb(177, 127, 0), 0 0 23px rgb(160, 115, 0);
+    }
+}
+@keyframes glow2{
+    from{
+        text-shadow: 0 0 2px #fff, 0 0 4px red, 0 0 8px rgb(228, 2, 2);
+    }
+    to{
+        text-shadow: 0 0 2px #fff, 0 0 4px red, 0 0 8px rgb(228, 2, 2), 0 0 11px 
+        rgb(196, 2, 2), 0 0 13px rgb(170, 2, 2), 0 0 16px rgb(143, 2, 2), 0 0 20px rgb(114, 0, 0);
+    }
+}
+@keyframes glow3{
+    from{
+        
+    }
+    to{
+        text-shadow: 0 0 5px #fff, 0 0 6px #fff;
+    }
+}
+@keyframes reminderAnim{
+    from{
+        height: 0px;
+    }
+    to{
+
+    }
+}
+:root{
+    font-size: 16px;
+    font-family: Exocet Light;
+    --text-primary: #b6b6b6;
+    --text-secondary: #ececec;
+    --bg-primary: #252529;
+    --bg-secondary: #141418;
+    text-shadow: 2px 2px rgb(0, 0, 0);
+}
+body::-webkit-scrollbar{
+    width: 0.25rem;
+}
+body::-webkit-scrollbar-track{
+    background: var(--bg-secondary);
+}
+body::-webkit-scrollbar-thumb{
+    background: var(--bg-primary);
+}
+.loader-wrapper {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgb(2, 2, 2);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.loader{
+    display: inline-block;
+    position: relative;
+}
+#classPicked{
+    display: none;
+}
+/* Class choice page */
+.classChoicePageLeft{
+    width: 15vw;
+    float: left;
+    border: 1px solid transparent;
+}
+.classChoicePageMid{
+    background: linear-gradient(90deg, rgb(14, 0, 0) 0%, rgb(34, 0, 0) 50%, rgb(14, 0, 0) 100%);
+    width: 70vw;
+    height: 100vw;
+    float: left;
+    border: 2px solid rgb(130, 106, 66);
+    border-top: none;
+}
+.classChoicePageMid p{
+    color: rgb(190, 157, 100);
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: overline;
+}
+.classesWrapper{
+    background-color: rgb(5, 5, 5);
+    border-bottom: 2px solid rgb(130, 106, 66);
+}
+.classChoicePageRight{
+    float: left;
+    border: 1px solid transparent;
+}
+.diabloClasses{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 0;
+}
+.diabloClasses img{
+    height: 62px;
+    margin: 15px 20px 15px 20px;
+    filter: brightness(175%) opacity(1);
+}
+.diabloClasses img:hover{
+    box-shadow: 0 0 5px rgb(255, 153, 0), 0 0 6px rgb(99, 60, 1);
+}
+/* Navigation bar */
+.navbar{
+    position: fixed;
+    background: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(8, 8, 8) 50%, rgb(5, 5, 5)100%);
+    list-style-type:none;
+    font-size: 20px;
+    font-weight: bold;
+    transition: width 200ms ease;
+    animation:glow 4s ease-in-out infinite alternate;
+}
+.navbar-nav{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+.nav-link{
+    display: flex;
+    align-items: center;
+    height: 5rem;
+    width: 100%;
+    color: var(--text-primary);
+    text-decoration: none;
+    filter: grayscale(100%) opacity(0.7);
+    transition: var(--transition-speed);
+}
+.nav-link:hover{
+    filter: grayscale(0%) opacity(1);
+    background-color: rgb(0, 0, 0);
+}
+.link-text{
+    display: none;
+    margin-left: 1rem;
+    color: rgb(201, 159, 52);
+}
+.navbar:hover{
+    width: 15rem;
+}
+.navbar:hover .link-text{
+    display: block;
+}
+.navbar img{
+    height: 50px;
+    width: 50px;
+    margin-left: 0px;
+    padding: 0px;
+    margin-left: 0.95rem;
+}
+.Logo img{
+    height: 55px;
+    width: 55px;
+}
+.nav-linkLogo{
+    display: flex;
+    align-items: center;
+    height: 5rem;
+    color: var(--text-primary);
+    text-decoration: none;
+}
+/* Reminder window */
+.reminder{
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 95px;
+    width: 21.5rem;
+    background: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(8, 8, 8) 50%, rgb(5, 5, 5)100%);
+    color: rgba(255, 255, 255, 0.808);
+    text-align: center;
+    box-shadow: 0 0 5px #fff, 0 0 6px #fff;
+    animation:reminderAnim 0.25s ease-in-out  alternate;
+    display: none;
+}
+.reminderText1{
+    font-weight: bold;
+    font-size: 20px;
+    color: rgb(201, 159, 52);
+}
+.reminderText2{
+    text-align: center;
+    font-weight: bold;
+    font-family: Arial;
+}
+/* Skill tree Page */
+.avalibleSkillPoints{
+    font-size: 2.2rem;
+    text-align: center;
+    font-weight: bold;
+    color: rgb(201, 159, 52);
+}
+.skillTreePage{
+    display: block;
+}
+.preSkillTree{
+    margin-left: 2%;
+}
+.skillTree{
+    float: left;
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.808);
+    margin-left: 2%;
+}
+.skillTree img{
+    box-shadow: 0 0 5px #fff, 0 0 6px #fff;
+}
+/* Skill counters and buttons */
+.skillCounter div{
+    position: absolute;
+    height: 22.5px;
+    width: 22.5px;
+    text-align: center;
+    font-size: 18px;
+    font-family: Arial;
+    /*border: 1px solid red;*/
+}
+.skillButton div{
+    position: absolute;
+    height: 63px;
+    width: 63px;
+    /*border: 1px solid red;*/
+}
+/* Amazon skills */
+.amazonSkillTree .skillCounter1{
+    margin-top: 110px;
+    margin-left: 132.5px;
+}
+.amazonSkillTree .skillCounter2{
+    margin-top: 278px;
+    margin-left: 132.5px;
+}
+.amazonSkillTree .skillCounter3{
+    margin-top: 447px;
+    margin-left: 132.5px;
+}
+.amazonSkillTree .skillCounter4{
+    margin-top: 196px;
+    margin-left: 255px;
+}
+.amazonSkillTree .skillCounter5{
+    margin-top: 363px;
+    margin-left: 255px;
+}
+.amazonSkillTree .skillCounter6{
+    margin-top: 529px;
+    margin-left: 255px;
+}
+.amazonSkillTree .skillCounter7{
+    margin-top: 196px;
+    margin-left: 377px;
+}
+.amazonSkillTree .skillCounter8{
+    margin-top: 278px;
+    margin-left: 377px;
+}
+.amazonSkillTree .skillCounter9{
+    margin-top: 363px;
+    margin-left: 377px;
+}
+.amazonSkillTree .skillCounter10{
+    margin-top: 529px;
+    margin-left: 377px;
+}
+
+.amazonSkillTree .skillCounter11{
+    margin-top: 110px;
+    margin-left: 132.5px;
+}
+.amazonSkillTree .skillCounter12{
+    margin-top: 278px;
+    margin-left: 132.5px;
+}
+.amazonSkillTree .skillCounter13{
+    margin-top: 447px;
+    margin-left: 132.5px;
+}
+.amazonSkillTree .skillCounter14{
+    margin-top: 529px;
+    margin-left: 132.5px;
+}
+.amazonSkillTree .skillCounter15{
+    margin-top: 196px;
+    margin-left: 255px;
+}
+.amazonSkillTree .skillCounter16{
+    margin-top: 278px;
+    margin-left: 255px;
+}
+.amazonSkillTree .skillCounter17{
+    margin-top: 447px;
+    margin-left: 255px;
+}
+.amazonSkillTree .skillCounter18{
+    margin-top: 110px;
+    margin-left: 377px;
+}
+.amazonSkillTree .skillCounter19{
+    margin-top: 363px;
+    margin-left: 377px;
+}
+.amazonSkillTree .skillCounter20{
+    margin-top: 529px;
+    margin-left: 377px;
+}
+
+.amazonSkillTree .skillCounter21{
+    margin-top: 196px;
+    margin-left: 132.5px;
+}
+.amazonSkillTree .skillCounter22{
+    margin-top: 363px;
+    margin-left: 132.5px;
+}
+.amazonSkillTree .skillCounter23{
+    margin-top: 529px;
+    margin-left: 132.5px;
+}
+.amazonSkillTree .skillCounter24{
+    margin-top: 110px;
+    margin-left: 255px;
+}
+.amazonSkillTree .skillCounter25{
+    margin-top: 196px;
+    margin-left: 255px;
+}
+.amazonSkillTree .skillCounter26{
+    margin-top: 363px;
+    margin-left: 255px;
+}
+.amazonSkillTree .skillCounter27{
+    margin-top: 447px;
+    margin-left: 255px;
+}
+.amazonSkillTree .skillCounter28{
+    margin-top: 110px;
+    margin-left: 377px;
+}
+.amazonSkillTree .skillCounter29{
+    margin-top: 278px;
+    margin-left: 377px;
+}
+.amazonSkillTree .skillCounter30{
+    margin-top: 447px;
+    margin-left: 377px;
+}
+
+.amazonSkillTree .skillButton1{
+    margin-left: 62px;
+    margin-top: 68px;
+}
+.amazonSkillTree .skillButton2{
+    margin-left: 62px;
+    margin-top: 236px;
+}
+.amazonSkillTree .skillButton3{
+    margin-left: 62px;
+    margin-top: 404px;
+}
+.amazonSkillTree .skillButton4{
+    margin-left: 185px;
+    margin-top: 153px;
+}
+.amazonSkillTree .skillButton5{
+    margin-left: 185px;
+    margin-top: 321px;
+}
+.amazonSkillTree .skillButton6{
+    margin-left: 185px;
+    margin-top: 486px;
+}
+.amazonSkillTree .skillButton7{
+    margin-left: 305px;
+    margin-top: 153px;
+}
+.amazonSkillTree .skillButton8{
+    margin-left: 305px;
+    margin-top: 236px;
+}
+.amazonSkillTree .skillButton9{
+    margin-left: 305px;
+    margin-top: 321px;
+}
+.amazonSkillTree .skillButton10{
+    margin-left: 305px;
+    margin-top: 486px;
+}
+
+.amazonSkillTree .skillButton11{
+    margin-left: 62px;
+    margin-top: 68px;
+}
+.amazonSkillTree .skillButton12{
+    margin-left: 62px;
+    margin-top: 236px;
+}
+.amazonSkillTree .skillButton13{
+    margin-left: 62px;
+    margin-top: 404px;
+}
+.amazonSkillTree .skillButton14{
+    margin-left: 62px;
+    margin-top: 486px;
+}
+.amazonSkillTree .skillButton15{
+    margin-left: 185px;
+    margin-top: 153px;
+}
+.amazonSkillTree .skillButton16{
+    margin-left: 185px;
+    margin-top: 236px;
+}
+.amazonSkillTree .skillButton17{
+    margin-left: 185px;
+    margin-top: 404px;
+}
+.amazonSkillTree .skillButton18{
+    margin-left: 305px;
+    margin-top: 68px;
+}
+.amazonSkillTree .skillButton19{
+    margin-left: 305px;
+    margin-top: 321px;
+}
+.amazonSkillTree .skillButton20{
+    margin-left: 305px;
+    margin-top: 486px;
+}
+
+.amazonSkillTree .skillButton21{
+    margin-left: 62px;
+    margin-top: 153px;
+}
+.amazonSkillTree .skillButton22{
+    margin-left: 62px;
+    margin-top: 321px;
+}
+.amazonSkillTree .skillButton23{
+    margin-left: 62px;
+    margin-top: 486px;
+}
+.amazonSkillTree .skillButton24{
+    margin-left: 185px;
+    margin-top: 68px;
+}
+.amazonSkillTree .skillButton25{
+    margin-left: 185px;
+    margin-top: 153px;
+}
+.amazonSkillTree .skillButton26{
+    margin-left: 185px;
+    margin-top: 321px;
+}
+.amazonSkillTree .skillButton27{
+    margin-left: 185px;
+    margin-top: 404px;
+}
+.amazonSkillTree .skillButton28{
+    margin-left: 305px;
+    margin-top: 68px;
+}
+.amazonSkillTree .skillButton29{
+    margin-left: 305px;
+    margin-top: 236px;
+}
+.amazonSkillTree .skillButton30{
+    margin-left: 305px;
+    margin-top: 404px;
+}
+/* Assassin skills */
+.assassinSkillTree .skillCounter1{
+    margin-top: 196px;
+    margin-left: 132.5px;
+}
+.assassinSkillTree .skillCounter2{
+    margin-top: 363px;
+    margin-left: 132.5px;
+}
+.assassinSkillTree .skillCounter3{
+    margin-top: 447px;
+    margin-left: 132.5px;
+}
+.assassinSkillTree .skillCounter4{
+    margin-top: 110px;
+    margin-left: 255px;
+}
+.assassinSkillTree .skillCounter5{
+    margin-top: 278px;
+    margin-left: 255px;
+}
+.assassinSkillTree .skillCounter6{
+    margin-top: 529px;
+    margin-left: 255px;
+}
+.assassinSkillTree .skillCounter7{
+    margin-top: 110px;
+    margin-left: 377px;
+}
+.assassinSkillTree .skillCounter8{
+    margin-top: 196px;
+    margin-left: 377px;
+}
+.assassinSkillTree .skillCounter9{
+    margin-top: 363px;
+    margin-left: 377px;
+}
+.assassinSkillTree .skillCounter10{
+    margin-top: 447px;
+    margin-left: 377px;
+}
+
+.assassinSkillTree .skillCounter11{
+    margin-top: 196px;
+    margin-left: 132.5px;
+}
+.assassinSkillTree .skillCounter12{
+    margin-top: 363px;
+    margin-left: 132.5px;
+}
+.assassinSkillTree .skillCounter13{
+    margin-top: 529px;
+    margin-left: 132.5px;
+}
+.assassinSkillTree .skillCounter14{
+    margin-top: 110px;
+    margin-left: 255px;
+}
+.assassinSkillTree .skillCounter15{
+    margin-top: 278px;
+    margin-left: 255px;
+}
+.assassinSkillTree .skillCounter16{
+    margin-top: 363px;
+    margin-left: 255px;
+}
+.assassinSkillTree .skillCounter17{
+    margin-top: 529px;
+    margin-left: 255px;
+}
+.assassinSkillTree .skillCounter18{
+    margin-top: 110px;
+    margin-left: 377px;
+}
+.assassinSkillTree .skillCounter19{
+    margin-top: 278px;
+    margin-left: 377px;
+}
+.assassinSkillTree .skillCounter20{
+    margin-left: 377px;
+    margin-top: 447px;
+}
+
+.assassinSkillTree .skillCounter21{
+    margin-top: 196px;
+    margin-left: 132.5px;
+}
+.assassinSkillTree .skillCounter22{
+    margin-top: 278px;
+    margin-left: 132.5px;
+}
+.assassinSkillTree .skillCounter23{
+    margin-top: 447px;
+    margin-left: 132.5px;
+}
+.assassinSkillTree .skillCounter24{
+    margin-top: 529px;
+    margin-left: 132.5px;
+}
+.assassinSkillTree .skillCounter25{
+    margin-top: 110px;
+    margin-left: 255px;
+}
+.assassinSkillTree .skillCounter26{
+    margin-top: 278px;
+    margin-left: 255px;
+}
+.assassinSkillTree .skillCounter27{
+    margin-top: 447px;
+    margin-left: 255px;
+}
+.assassinSkillTree .skillCounter28{
+    margin-top: 196px;
+    margin-left: 377px;
+}
+.assassinSkillTree .skillCounter29{
+    margin-top: 363px;
+    margin-left: 377px;
+}
+.assassinSkillTree .skillCounter30{
+    margin-top: 529px;
+    margin-left: 377px;
+}
+
+.assassinSkillTree .skillButton1{
+    margin-left: 62px;
+    margin-top: 153px;
+}
+.assassinSkillTree .skillButton2{
+    margin-left: 62px;
+    margin-top: 321px;
+}
+.assassinSkillTree .skillButton3{
+    margin-left: 62px;
+    margin-top: 404px;
+}
+.assassinSkillTree .skillButton4{
+    margin-left: 185px;
+    margin-top: 68px;
+}
+.assassinSkillTree .skillButton5{
+    margin-left: 185px;
+    margin-top: 236px;
+}
+.assassinSkillTree .skillButton6{
+    margin-left: 185px;
+    margin-top: 486px;
+}
+.assassinSkillTree .skillButton7{
+    margin-left: 305px;
+    margin-top: 68px;
+}
+.assassinSkillTree .skillButton8{
+    margin-left: 305px;
+    margin-top: 153px;
+}
+.assassinSkillTree .skillButton9{
+    margin-left: 305px;
+    margin-top: 321px;
+}
+.assassinSkillTree .skillButton10{
+    margin-left: 305px;
+    margin-top: 404px;
+}
+
+.assassinSkillTree .skillButton11{
+    margin-left: 62px;
+    margin-top: 153px;
+}
+.assassinSkillTree .skillButton12{
+    margin-left: 62px;
+    margin-top: 321px;
+}
+.assassinSkillTree .skillButton13{
+    margin-left: 62px;
+    margin-top: 486px;
+}
+.assassinSkillTree .skillButton14{
+    margin-left: 185px;
+    margin-top: 68px;
+}
+.assassinSkillTree .skillButton15{
+    margin-left: 185px;
+    margin-top: 236px;
+}
+.assassinSkillTree .skillButton16{
+    margin-left: 185px;
+    margin-top: 321px;
+}
+.assassinSkillTree .skillButton17{
+    margin-left: 185px;
+    margin-top: 486px;
+}
+.assassinSkillTree .skillButton18{
+    margin-left: 305px;
+    margin-top: 68px;
+}
+.assassinSkillTree .skillButton19{
+    margin-left: 305px;
+    margin-top: 236px;
+}
+.assassinSkillTree .skillButton20{
+    margin-left: 305px;
+    margin-top: 404px;
+}
+
+.assassinSkillTree .skillButton21{
+    margin-left: 62px;
+    margin-top: 153px;
+}
+.assassinSkillTree .skillButton22{
+    margin-left: 62px;
+    margin-top: 236px;
+}
+.assassinSkillTree .skillButton23{
+    margin-left: 62px;
+    margin-top: 404px;
+}
+.assassinSkillTree .skillButton24{
+    margin-left: 62px;
+    margin-top: 486px;
+}
+.assassinSkillTree .skillButton25{
+    margin-left: 185px;
+    margin-top: 68px;
+}
+.assassinSkillTree .skillButton26{
+    margin-left: 185px;
+    margin-top: 236px;
+}
+.assassinSkillTree .skillButton27{
+    margin-left: 185px;
+    margin-top: 404px;
+}
+.assassinSkillTree .skillButton28{
+    margin-left: 305px;
+    margin-top: 153px;
+}
+.assassinSkillTree .skillButton29{
+    margin-left: 305px;
+    margin-top: 321px;
+}
+.assassinSkillTree .skillButton30{
+    margin-left: 305px;
+    margin-top: 486px;
+}
+/* Necromancer skills */
+.necromancerSkillTree .skillCounter1{
+    margin-top: 110px;
+    margin-left: 132.5px;
+}
+.necromancerSkillTree .skillCounter2{
+    margin-top: 278px;
+    margin-left: 132.5px;
+}
+.necromancerSkillTree .skillCounter3{
+    margin-top: 447px;
+    margin-left: 132.5px;
+}
+.necromancerSkillTree .skillCounter4{
+    margin-top: 196px;
+    margin-left: 255px;
+}
+.necromancerSkillTree .skillCounter5{
+    margin-top: 363px;
+    margin-left: 255px;
+}
+.necromancerSkillTree .skillCounter6{
+    margin-top: 447px;
+    margin-left: 255px;
+}
+.necromancerSkillTree .skillCounter7{
+    margin-top: 529px;
+    margin-left: 255px;
+}
+.necromancerSkillTree .skillCounter8{
+    margin-top: 110px;
+    margin-left: 377px;
+}
+.necromancerSkillTree .skillCounter9{
+    margin-top: 278px;
+    margin-left: 377px;
+}
+.necromancerSkillTree .skillCounter10{
+    margin-top: 529px;
+    margin-left: 377px;
+}
+
+.necromancerSkillTree .skillCounter11{
+    margin-top: 196px;
+    margin-left: 132.5px;
+}
+.necromancerSkillTree .skillCounter12{
+    margin-top: 363px;
+    margin-left: 132.5px;
+}
+.necromancerSkillTree .skillCounter13{
+    margin-top: 529px;
+    margin-left: 132.5px;
+}
+.necromancerSkillTree .skillCounter14{
+    margin-top: 110px;
+    margin-left: 255px;
+}
+.necromancerSkillTree .skillCounter15{
+    margin-top: 196px;
+    margin-left: 255px;
+}
+.necromancerSkillTree .skillCounter16{
+    margin-top: 363px;
+    margin-left: 255px;
+}
+.necromancerSkillTree .skillCounter17{
+    margin-top: 529px;
+    margin-left: 255px;
+}
+.necromancerSkillTree .skillCounter18{
+    margin-top: 110px;
+    margin-left: 377px;
+}
+.necromancerSkillTree .skillCounter19{
+    margin-top: 278px;
+    margin-left: 377px;
+}
+.necromancerSkillTree .skillCounter20{
+    margin-top: 447px;
+    margin-left: 377px;
+}
+
+.necromancerSkillTree .skillCounter21{
+    margin-top: 196px;
+    margin-left: 132.5px;
+}
+.necromancerSkillTree .skillCounter22{
+    margin-top: 363px;
+    margin-left: 132.5px;
+}
+.necromancerSkillTree .skillCounter23{
+    margin-top: 447px;
+    margin-left: 132.5px;
+}
+.necromancerSkillTree .skillCounter24{
+    margin-top: 110px;
+    margin-left: 255px;
+}
+.necromancerSkillTree .skillCounter25{
+    margin-top: 278px;
+    margin-left: 255px;
+}
+.necromancerSkillTree .skillCounter26{
+    margin-top: 363px;
+    margin-left: 255px;
+}
+.necromancerSkillTree .skillCounter27{
+    margin-top: 529px;
+    margin-left: 255px;
+}
+.necromancerSkillTree .skillCounter28{
+    margin-top: 196px;
+    margin-left: 377px;
+}
+.necromancerSkillTree .skillCounter29{
+    margin-top: 278px;
+    margin-left: 377px;
+}
+.necromancerSkillTree .skillCounter30{
+    margin-top: 447px;
+    margin-left: 377px;
+}
+
+.necromancerSkillTree .skillButton1{
+    margin-top: 68px;
+    margin-left: 62px;
+}
+.necromancerSkillTree .skillButton2{
+    margin-top: 236px;
+    margin-left: 62px;
+}
+.necromancerSkillTree .skillButton3{
+    margin-top: 404px;
+    margin-left: 62px;
+}
+.necromancerSkillTree .skillButton4{
+    margin-top: 153px;
+    margin-left: 185px;
+}
+.necromancerSkillTree .skillButton5{
+    margin-top: 321px;
+    margin-left: 185px;
+}
+.necromancerSkillTree .skillButton6{
+    margin-top: 404px;
+    margin-left: 185px;
+}
+.necromancerSkillTree .skillButton7{
+    margin-top: 486px;
+    margin-left: 185px;
+}
+.necromancerSkillTree .skillButton8{
+    margin-top: 68px;
+    margin-left: 305px;
+}
+.necromancerSkillTree .skillButton9{
+    margin-top: 236px;
+    margin-left: 305px;
+}
+.necromancerSkillTree .skillButton10{
+    margin-top: 486px;
+    margin-left: 305px;
+}
+
+.necromancerSkillTree .skillButton11{
+    margin-top: 153px;
+    margin-left: 62px;
+}
+.necromancerSkillTree .skillButton12{
+    margin-top: 321px;
+    margin-left: 62px;
+}
+.necromancerSkillTree .skillButton13{
+    margin-top: 486px;
+    margin-left: 62px;
+}
+.necromancerSkillTree .skillButton14{
+    margin-top: 68px;
+    margin-left: 185px;
+}
+.necromancerSkillTree .skillButton15{
+    margin-top: 153px;
+    margin-left: 185px;
+}
+.necromancerSkillTree .skillButton16{
+    margin-top: 321px;
+    margin-left: 185px;
+}
+.necromancerSkillTree .skillButton17{
+    margin-top: 486px;
+    margin-left: 185px;
+}
+.necromancerSkillTree .skillButton18{
+    margin-top: 68px;
+    margin-left: 305px;
+}
+.necromancerSkillTree .skillButton19{
+    margin-top: 236px;
+    margin-left: 305px;
+}
+.necromancerSkillTree .skillButton20{
+    margin-top: 404px;
+    margin-left: 305px;
+}
+
+.necromancerSkillTree .skillButton21{
+    margin-top: 153px;
+    margin-left: 62px;
+}
+.necromancerSkillTree .skillButton22{
+    margin-top: 321px;
+    margin-left: 62px;
+}
+.necromancerSkillTree .skillButton23{
+    margin-top: 404px;
+    margin-left: 62px;
+}
+.necromancerSkillTree .skillButton24{
+    margin-top: 68px;
+    margin-left: 185px;
+}
+.necromancerSkillTree .skillButton25{
+    margin-top: 236px;
+    margin-left: 185px;
+}
+.necromancerSkillTree .skillButton26{
+    margin-top: 321px;
+    margin-left: 185px;
+}
+.necromancerSkillTree .skillButton27{
+    margin-top: 486px;
+    margin-left: 185px;
+}
+.necromancerSkillTree .skillButton28{
+    margin-top: 153px;
+    margin-left: 305px;
+}
+.necromancerSkillTree .skillButton29{
+    margin-top: 236px;
+    margin-left: 305px;
+}
+.necromancerSkillTree .skillButton30{
+    margin-top: 404px;
+    margin-left: 305px;
+}
+/* Barbarian skills */
+.barbarianSkillTree .skillCounter1{
+    margin-top: 110px;
+    margin-left: 132.5px;
+}
+.barbarianSkillTree .skillCounter2{
+    margin-top: 196px;
+    margin-left: 132.5px;
+}
+.barbarianSkillTree .skillCounter3{
+    margin-top: 363px;
+    margin-left: 132.5px;
+}
+.barbarianSkillTree .skillCounter4{
+    margin-top: 529px;
+    margin-left: 132.5px;
+}
+.barbarianSkillTree .skillCounter5{
+    margin-top: 196px;
+    margin-left: 255px;
+}
+.barbarianSkillTree .skillCounter6{
+    margin-top: 447px;
+    margin-left: 255px;
+}
+.barbarianSkillTree .skillCounter7{
+    margin-top: 529px;
+    margin-left: 255px;
+}
+.barbarianSkillTree .skillCounter8{
+    margin-top: 110px;
+    margin-left: 377px;
+}
+.barbarianSkillTree .skillCounter9{
+    margin-top: 278px;
+    margin-left: 377px;
+}
+.barbarianSkillTree .skillCounter10{
+    margin-top: 447px;
+    margin-left: 377px;
+}
+
+.barbarianSkillTree .skillCounter11{
+    margin-top: 110px;
+    margin-left: 132.5px;
+}
+.barbarianSkillTree .skillCounter12{
+    margin-top: 196px;
+    margin-left: 132.5px;
+}
+.barbarianSkillTree .skillCounter13{
+    margin-top: 278px;
+    margin-left: 132.5px;
+}
+.barbarianSkillTree .skillCounter14{
+    margin-top: 447px;
+    margin-left: 132.5px;
+}
+.barbarianSkillTree .skillCounter15{
+    margin-top: 110px;
+    margin-left: 255px;
+}
+.barbarianSkillTree .skillCounter16{
+    margin-top: 196px;
+    margin-left: 255px;
+}
+.barbarianSkillTree .skillCounter17{
+    margin-top: 110px;
+    margin-left: 377px;
+}
+.barbarianSkillTree .skillCounter18{
+    margin-top: 196px;
+    margin-left: 377px;
+}
+.barbarianSkillTree .skillCounter19{
+    margin-top: 363px;
+    margin-left: 377px;
+}
+.barbarianSkillTree .skillCounter20{
+    margin-top: 529px;
+    margin-left: 377px;
+}
+
+.barbarianSkillTree .skillCounter21{
+    margin-top: 196px;
+    margin-left: 132.5px;
+}
+.barbarianSkillTree .skillCounter22{
+    margin-top: 363px;
+    margin-left: 132.5px;
+}
+.barbarianSkillTree .skillCounter23{
+    margin-top: 529px;
+    margin-left: 132.5px;
+}
+.barbarianSkillTree .skillCounter24{
+    margin-top: 110px;
+    margin-left: 255px;
+}
+.barbarianSkillTree .skillCounter25{
+    margin-top: 278px;
+    margin-left: 255px;
+}
+.barbarianSkillTree .skillCounter26{
+    margin-top: 363px;
+    margin-left: 255px;
+}
+.barbarianSkillTree .skillCounter27{
+    margin-top: 529px;
+    margin-left: 255px;
+}
+.barbarianSkillTree .skillCounter28{
+    margin-top: 196px;
+    margin-left: 377px;
+}
+.barbarianSkillTree .skillCounter29{
+    margin-top: 278px;
+    margin-left: 377px;
+}
+.barbarianSkillTree .skillCounter30{
+    margin-top: 447px;
+    margin-left: 377px;
+}
+
+.barbarianSkillTree .skillButton1{
+    margin-top: 68px;
+    margin-left: 62px;
+}
+.barbarianSkillTree .skillButton2{
+    margin-top: 153px;
+    margin-left: 62px;
+}
+.barbarianSkillTree .skillButton3{
+    margin-top: 321px;
+    margin-left: 62px;
+}
+.barbarianSkillTree .skillButton4{
+    margin-top: 486px;
+    margin-left: 62px;
+}
+.barbarianSkillTree .skillButton5{
+    margin-top: 153px;
+    margin-left: 185px;
+}
+.barbarianSkillTree .skillButton6{
+    margin-top: 404px;
+    margin-left: 185px;
+}
+.barbarianSkillTree .skillButton7{
+    margin-top: 486px;
+    margin-left: 185px;
+}
+.barbarianSkillTree .skillButton8{
+    margin-top: 68px;
+    margin-left: 305px;
+}
+.barbarianSkillTree .skillButton9{
+    margin-top: 236px;
+    margin-left: 305px;
+}
+.barbarianSkillTree .skillButton10{
+    margin-top: 404px;
+    margin-left: 305px;
+}
+
+.barbarianSkillTree .skillButton11{
+    margin-top: 68px;
+    margin-left: 62px;
+}
+.barbarianSkillTree .skillButton12{
+    margin-top: 153px;
+    margin-left: 62px;
+}
+.barbarianSkillTree .skillButton13{
+    margin-top: 236px;
+    margin-left: 62px;
+}
+.barbarianSkillTree .skillButton14{
+    margin-top: 404px;
+    margin-left: 62px;
+}
+.barbarianSkillTree .skillButton15{
+    margin-top: 68px;
+    margin-left: 185px;
+}
+.barbarianSkillTree .skillButton16{
+    margin-top: 153px;
+    margin-left: 185px;
+}
+.barbarianSkillTree .skillButton17{
+    margin-top: 68px;
+    margin-left: 305px;
+}
+.barbarianSkillTree .skillButton18{
+    margin-top: 153px;
+    margin-left: 305px;
+}
+.barbarianSkillTree .skillButton19{
+    margin-top: 321px;
+    margin-left: 305px;
+}
+.barbarianSkillTree .skillButton20{
+    margin-top: 486px;
+    margin-left: 305px;
+}
+
+.barbarianSkillTree .skillButton21{
+    margin-top: 153px;
+    margin-left: 62px;
+}
+.barbarianSkillTree .skillButton22{
+    margin-top: 321px;
+    margin-left: 62px;
+}
+.barbarianSkillTree .skillButton23{
+    margin-top: 486px;
+    margin-left: 62px;
+}
+.barbarianSkillTree .skillButton24{
+    margin-top: 68px;
+    margin-left: 185px;
+}
+.barbarianSkillTree .skillButton25{
+    margin-top: 236px;
+    margin-left: 185px;
+}
+.barbarianSkillTree .skillButton26{
+    margin-top: 321px;
+    margin-left: 185px;
+}
+.barbarianSkillTree .skillButton27{
+    margin-top: 486px;
+    margin-left: 185px;
+}
+.barbarianSkillTree .skillButton28{
+    margin-top: 153px;
+    margin-left: 305px;
+}
+.barbarianSkillTree .skillButton29{
+    margin-top: 236px;
+    margin-left: 305px;
+}
+.barbarianSkillTree .skillButton30{
+    margin-top: 404px;
+    margin-left: 305px;
+}
+/* Paladin skills */
+.paladinSkillTree .skillCounter1{
+    margin-top: 110px;
+    margin-left: 132.5px;
+}
+.paladinSkillTree .skillCounter2{
+    margin-top: 278px;
+    margin-left: 132.5px;
+}
+.paladinSkillTree .skillCounter3{
+    margin-top: 447px;
+    margin-left: 132.5px;
+}
+.paladinSkillTree .skillCounter4{
+    margin-top: 196px;
+    margin-left: 255px;
+}
+.paladinSkillTree .skillCounter5{
+    margin-top: 363px;
+    margin-left: 255px;
+}
+.paladinSkillTree .skillCounter6{
+    margin-top: 529px;
+    margin-left: 255px;
+}
+.paladinSkillTree .skillCounter7{
+    margin-top: 110px;
+    margin-left: 377px;
+}
+.paladinSkillTree .skillCounter8{
+    margin-top: 196px;
+    margin-left: 377px;
+}
+.paladinSkillTree .skillCounter9{
+    margin-top: 279px;
+    margin-left: 377px;
+}
+.paladinSkillTree .skillCounter10{
+    margin-top: 530px;
+    margin-left: 377px;
+}
+
+.paladinSkillTree .skillCounter11{
+    margin-top: 110px;
+    margin-left: 132.5px;
+}
+.paladinSkillTree .skillCounter12{
+    margin-top: 278px;
+    margin-left: 132.5px;
+}
+.paladinSkillTree .skillCounter13{
+    margin-top: 363px;
+    margin-left: 132.5px;
+}
+.paladinSkillTree .skillCounter14{
+    margin-top: 529px;
+    margin-left: 132.5px;
+}
+.paladinSkillTree .skillCounter15{
+    margin-top: 196px;
+    margin-left: 255px;
+}
+.paladinSkillTree .skillCounter16{
+    margin-top: 363px;
+    margin-left: 255px;
+}
+.paladinSkillTree .skillCounter17{
+    margin-top: 447px;
+    margin-left: 255px;
+}
+.paladinSkillTree .skillCounter18{
+    margin-top: 196px;
+    margin-left: 377px;
+}
+.paladinSkillTree .skillCounter19{
+    margin-top: 447px;
+    margin-left: 377px;
+}
+.paladinSkillTree .skillCounter20{
+    margin-left: 377px;
+    margin-top: 530px;
+}
+
+.paladinSkillTree .skillCounter21{
+    margin-top: 110px;
+    margin-left: 132.5px;
+}
+.paladinSkillTree .skillCounter22{
+    margin-top: 278px;
+    margin-left: 132.5px;
+}
+.paladinSkillTree .skillCounter23{
+    margin-top: 363px;
+    margin-left: 132.5px;
+}
+.paladinSkillTree .skillCounter24{
+    margin-top: 447px;
+    margin-left: 132.5px;
+}
+.paladinSkillTree .skillCounter25{
+    margin-top: 196px;
+    margin-left: 255px;
+}
+.paladinSkillTree .skillCounter26{
+    margin-top: 363px;
+    margin-left: 255px;
+}
+.paladinSkillTree .skillCounter27{
+    margin-top: 529px;
+    margin-left: 255px;
+}
+.paladinSkillTree .skillCounter28{
+    margin-top: 110px;
+    margin-left: 377px;
+}
+.paladinSkillTree .skillCounter29{
+    margin-top: 279px;
+    margin-left: 377px;
+}
+.paladinSkillTree .skillCounter30{
+    margin-top: 447px;
+    margin-left: 377px;
+}
+
+.paladinSkillTree .skillButton1{
+    margin-left: 62px;
+    margin-top: 68px;
+}
+.paladinSkillTree .skillButton2{
+    margin-left: 62px;
+    margin-top: 236px;
+}
+.paladinSkillTree .skillButton3{
+    margin-left: 62px;
+    margin-top: 404px;
+}
+.paladinSkillTree .skillButton4{
+    margin-left: 185px;
+    margin-top: 153px;
+}
+.paladinSkillTree .skillButton5{
+    margin-left: 185px;
+    margin-top: 321px;
+}
+.paladinSkillTree .skillButton6{
+    margin-left: 185px;
+    margin-top: 486px;
+}
+.paladinSkillTree .skillButton7{
+    margin-left: 305px;
+    margin-top: 68px;
+}
+.paladinSkillTree .skillButton8{
+    margin-left: 305px;
+    margin-top: 153px;
+}
+.paladinSkillTree .skillButton9{
+    margin-left: 305px;
+    margin-top: 236px;
+}
+.paladinSkillTree .skillButton10{
+    margin-left: 305px;
+    margin-top: 486px;
+}
+
+.paladinSkillTree .skillButton11{
+    margin-left: 62px;
+    margin-top: 68px;
+}
+.paladinSkillTree .skillButton12{
+    margin-left: 62px;
+    margin-top: 236px;
+}
+.paladinSkillTree .skillButton13{
+    margin-left: 62px;
+    margin-top: 321px;
+}
+.paladinSkillTree .skillButton14{
+    margin-left: 62px;
+    margin-top: 486px;
+}
+.paladinSkillTree .skillButton15{
+    margin-left: 185px;
+    margin-top: 153px;
+}
+.paladinSkillTree .skillButton16{
+    margin-left: 185px;
+    margin-top: 321px;
+}
+.paladinSkillTree .skillButton17{
+    margin-left: 185px;
+    margin-top: 404px;
+}
+.paladinSkillTree .skillButton18{
+    margin-left: 305px;
+    margin-top: 153px;
+}
+.paladinSkillTree .skillButton19{
+    margin-left: 305px;
+    margin-top: 404px;
+}
+.paladinSkillTree .skillButton20{
+    margin-left: 305px;
+    margin-top: 486px;
+}
+
+.paladinSkillTree .skillButton21{
+    margin-left: 62px;
+    margin-top: 68px;
+}
+.paladinSkillTree .skillButton22{
+    margin-left: 62px;
+    margin-top: 236px;
+}
+.paladinSkillTree .skillButton23{
+    margin-left: 62px;
+    margin-top: 321px;
+}
+.paladinSkillTree .skillButton24{
+    margin-left: 62px;
+    margin-top: 404px;
+}
+.paladinSkillTree .skillButton25{
+    margin-left: 185px;
+    margin-top: 153px;
+}
+.paladinSkillTree .skillButton26{
+    margin-left: 185px;
+    margin-top: 321px;
+}
+.paladinSkillTree .skillButton27{
+    margin-left: 185px;
+    margin-top: 486px;
+}
+.paladinSkillTree .skillButton28{
+    margin-left: 305px;
+    margin-top: 68px;
+}
+.paladinSkillTree .skillButton29{
+    margin-left: 305px;
+    margin-top: 236px;
+}
+.paladinSkillTree .skillButton30{
+    margin-left: 305px;
+    margin-top: 404px;
+}
+
+/* Sorceress skills */
+.sorceressSkillTree .skillCounter1{
+    margin-top: 196px;
+    margin-left: 132.5px;
+}
+.sorceressSkillTree .skillCounter2{
+    margin-top: 447px;
+    margin-left: 132.5px;
+}
+.sorceressSkillTree .skillCounter3{
+    margin-top: 529px;
+    margin-left: 132.5px;
+}
+.sorceressSkillTree .skillCounter4{
+    margin-top: 110px;
+    margin-left: 255px;
+}
+.sorceressSkillTree .skillCounter5{
+    margin-top: 196px;
+    margin-left: 255px;
+}
+.sorceressSkillTree .skillCounter6{
+    margin-top: 363px;
+    margin-left: 255px;
+}
+.sorceressSkillTree .skillCounter7{
+    margin-top: 529px;
+    margin-left: 255px;
+}
+.sorceressSkillTree .skillCounter8{
+    margin-top: 110px;
+    margin-left: 377px;
+}
+.sorceressSkillTree .skillCounter9{
+    margin-top: 278px;
+    margin-left: 377px;
+}
+.sorceressSkillTree .skillCounter10{
+    margin-top: 447px;
+    margin-left: 377px;
+}
+
+.sorceressSkillTree .skillCounter11{
+    margin-top: 196px;
+    margin-left: 132.5px;
+}
+.sorceressSkillTree .skillCounter12{
+    margin-top: 278px;
+    margin-left: 132.5px;
+}
+.sorceressSkillTree .skillCounter13{
+    margin-top: 447px;
+    margin-left: 132.5px;
+}
+.sorceressSkillTree .skillCounter14{
+    margin-top: 110px;
+    margin-left: 255px;
+}
+.sorceressSkillTree .skillCounter15{
+    margin-top: 278px;
+    margin-left: 255px;
+}
+.sorceressSkillTree .skillCounter16{
+    margin-top: 363px;
+    margin-left: 255px;
+}
+.sorceressSkillTree .skillCounter17{
+    margin-top: 529px;
+    margin-left: 255px;
+}
+.sorceressSkillTree .skillCounter18{
+    margin-top: 196px;
+    margin-left: 377px;
+}
+.sorceressSkillTree .skillCounter19{
+    margin-top: 363px;
+    margin-left: 377px;
+}
+.sorceressSkillTree .skillCounter20{
+    margin-top: 447px;
+    margin-left: 377px;
+}
+
+.sorceressSkillTree .skillCounter21{
+    margin-top: 196px;
+    margin-left: 132.5px;
+}
+.sorceressSkillTree .skillCounter22{
+    margin-top: 278px;
+    margin-left: 132.5px;
+}
+.sorceressSkillTree .skillCounter23{
+    margin-top: 363px;
+    margin-left: 132.5px;
+}
+.sorceressSkillTree .skillCounter24{
+    margin-top: 110px;
+    margin-left: 255px;
+}
+.sorceressSkillTree .skillCounter25{
+    margin-top: 278px;
+    margin-left: 255px;
+}
+.sorceressSkillTree .skillCounter26{
+    margin-top: 447px;
+    margin-left: 255px;
+}
+.sorceressSkillTree .skillCounter27{
+    margin-top: 529px;
+    margin-left: 255px;
+}
+.sorceressSkillTree .skillCounter28{
+    margin-top: 110px;
+    margin-left: 377px;
+}
+.sorceressSkillTree .skillCounter29{
+    margin-top: 363px;
+    margin-left: 377px;
+}
+.sorceressSkillTree .skillCounter30{
+    margin-top: 529px;
+    margin-left: 377px;
+}
+
+.sorceressSkillTree .skillButton1{
+    margin-top: 153px;
+    margin-left: 62px;
+}
+.sorceressSkillTree .skillButton2{
+    margin-top: 404px;
+    margin-left: 62px;
+}
+.sorceressSkillTree .skillButton3{
+    margin-top: 486px;
+    margin-left: 62px;
+}
+.sorceressSkillTree .skillButton4{
+    margin-top: 68px;
+    margin-left: 185px;
+}
+.sorceressSkillTree .skillButton5{
+    margin-top: 153px;
+    margin-left: 185px;
+}
+.sorceressSkillTree .skillButton6{
+    margin-top: 321px;
+    margin-left: 185px;
+}
+.sorceressSkillTree .skillButton7{
+    margin-top: 486px;
+    margin-left: 185px;
+}
+.sorceressSkillTree .skillButton8{
+    margin-top: 68px;
+    margin-left: 305px;
+}
+.sorceressSkillTree .skillButton9{
+    margin-top: 236px;
+    margin-left: 305px;
+}
+.sorceressSkillTree .skillButton10{
+    margin-top: 404px;
+    margin-left: 305px;
+}
+
+.sorceressSkillTree .skillButton11{
+    margin-top: 153px;
+    margin-left: 62px;
+}
+.sorceressSkillTree .skillButton12{
+    margin-top: 236px;
+    margin-left: 62px;
+}
+.sorceressSkillTree .skillButton13{
+    margin-top: 404px;
+    margin-left: 62px;
+}
+.sorceressSkillTree .skillButton14{
+    margin-top: 68px;
+    margin-left: 185px;
+}
+.sorceressSkillTree .skillButton15{
+    margin-top: 236px;
+    margin-left: 185px;
+}
+.sorceressSkillTree .skillButton16{
+    margin-top: 321px;
+    margin-left: 185px;
+}
+.sorceressSkillTree .skillButton17{
+    margin-top: 486px;
+    margin-left: 185px;
+}
+.sorceressSkillTree .skillButton18{
+    margin-top: 153px;
+    margin-left: 305px;
+}
+.sorceressSkillTree .skillButton19{
+    margin-top: 321px;
+    margin-left: 305px;
+}
+.sorceressSkillTree .skillButton20{
+    margin-top: 404px;
+    margin-left: 305px;
+}
+
+.sorceressSkillTree .skillButton21{
+    margin-top: 153px;
+    margin-left: 62px;
+}
+.sorceressSkillTree .skillButton22{
+    margin-top: 236px;
+    margin-left: 62px;
+}
+.sorceressSkillTree .skillButton23{
+    margin-top: 321px;
+    margin-left: 62px;
+}
+.sorceressSkillTree .skillButton24{
+    margin-top: 68px;
+    margin-left: 185px;
+}
+.sorceressSkillTree .skillButton25{
+    margin-top: 236px;
+    margin-left: 185px;
+}
+.sorceressSkillTree .skillButton26{
+    margin-top: 404px;
+    margin-left: 185px;
+}
+.sorceressSkillTree .skillButton27{
+    margin-top: 486px;
+    margin-left: 185px;
+}
+.sorceressSkillTree .skillButton28{
+    margin-top: 68px;
+    margin-left: 305px;
+}
+.sorceressSkillTree .skillButton29{
+    margin-top: 321px;
+    margin-left: 305px;
+}
+.sorceressSkillTree .skillButton30{
+    margin-top: 486px;
+    margin-left: 305px;
+}
+/* Druid skills */
+.druidSkillTree .skillCounter1{
+    margin-top: 110px;
+    margin-left: 132.5px;
+}
+.druidSkillTree .skillCounter2{
+    margin-top: 196px;
+    margin-left: 132.5px;
+}
+.druidSkillTree .skillCounter3{
+    margin-top: 278px;
+    margin-left: 132.5px;
+}
+.druidSkillTree .skillCounter4{
+    margin-top: 447px;
+    margin-left: 132.5px;
+}
+.druidSkillTree .skillCounter5{
+    margin-top: 529px;
+    margin-left: 132.5px;
+}
+.druidSkillTree .skillCounter6{
+    margin-top: 363px;
+    margin-left: 255px;
+}
+.druidSkillTree .skillCounter7{
+    margin-top: 447px;
+    margin-left: 255px;
+}
+.druidSkillTree .skillCounter8{
+    margin-top: 529px;
+    margin-left: 255px;
+}
+.druidSkillTree .skillCounter9{
+    margin-top: 196px;
+    margin-left: 377px;
+}
+.druidSkillTree .skillCounter10{
+    margin-top: 278px;
+    margin-left: 377px;
+}
+
+.druidSkillTree .skillCounter11{
+    margin-top: 110px;
+    margin-left: 132.5px;
+}
+.druidSkillTree .skillCounter12{
+    margin-top: 278px;
+    margin-left: 132.5px;
+}
+.druidSkillTree .skillCounter13{
+    margin-top: 363px;
+    margin-left: 132.5px;
+}
+.druidSkillTree .skillCounter14{
+    margin-top: 529px;
+    margin-left: 132.5px;
+}
+.druidSkillTree .skillCounter15{
+    margin-top: 110px;
+    margin-left: 255px;
+}
+.druidSkillTree .skillCounter16{
+    margin-top: 363px;
+    margin-left: 255px;
+}
+.druidSkillTree .skillCounter17{
+    margin-top: 447px;
+    margin-left: 255px;
+}
+.druidSkillTree .skillCounter18{
+    margin-top: 196px;
+    margin-left: 377px;
+}
+.druidSkillTree .skillCounter19{
+    margin-top: 278px;
+    margin-left: 377px;
+}
+.druidSkillTree .skillCounter20{
+    margin-top: 447px;
+    margin-left: 377px;
+}
+
+.druidSkillTree .skillCounter21{
+    margin-top: 196px;
+    margin-left: 132.5px;
+}
+.druidSkillTree .skillCounter22{
+    margin-top: 363px;
+    margin-left: 132.5px;
+}
+.druidSkillTree .skillCounter23{
+    margin-top: 529px;
+    margin-left: 132.5px;
+}
+.druidSkillTree .skillCounter24{
+    margin-top: 110px;
+    margin-left: 255px;
+}
+.druidSkillTree .skillCounter25{
+    margin-top: 196px;
+    margin-left: 255px;
+}
+.druidSkillTree .skillCounter26{
+    margin-top: 363px;
+    margin-left: 255px;
+}
+.druidSkillTree .skillCounter27{
+    margin-top: 529px;
+    margin-left: 255px;
+}
+.druidSkillTree .skillCounter28{
+    margin-top: 110px;
+    margin-left: 377px;
+}
+.druidSkillTree .skillCounter29{
+    margin-top: 278px;
+    margin-left: 377px;
+}
+.druidSkillTree .skillCounter30{
+    margin-top: 447px;
+    margin-left: 377px;
+}
+
+.druidSkillTree .skillButton1{
+    margin-top: 68px;
+    margin-left: 62px;
+}
+.druidSkillTree .skillButton2{
+    margin-top: 153px;
+    margin-left: 62px;
+}
+.druidSkillTree .skillButton3{
+    margin-top: 236px;
+    margin-left: 62px;
+}
+.druidSkillTree .skillButton4{
+    margin-top: 404px;
+    margin-left: 62px;
+}
+.druidSkillTree .skillButton5{
+    margin-top: 486px;
+    margin-left: 62px;
+}
+.druidSkillTree .skillButton6{
+    margin-top: 321px;
+    margin-left: 185px;
+}
+.druidSkillTree .skillButton7{
+    margin-top: 404px;
+    margin-left: 185px;
+}
+.druidSkillTree .skillButton8{
+    margin-top: 486px;
+    margin-left: 185px;
+}
+.druidSkillTree .skillButton9{
+    margin-top: 153px;
+    margin-left: 305px;
+}
+.druidSkillTree .skillButton10{
+    margin-top: 236px;
+    margin-left: 305px;
+}
+
+.druidSkillTree .skillButton11{
+    margin-top: 68px;
+    margin-left: 62px;
+}
+.druidSkillTree .skillButton12{
+    margin-top: 236px;
+    margin-left: 62px;
+}
+.druidSkillTree .skillButton13{
+    margin-top: 321px;
+    margin-left: 62px;
+}
+.druidSkillTree .skillButton14{
+    margin-top: 486px;
+    margin-left: 62px;
+}
+.druidSkillTree .skillButton15{
+    margin-top: 68px;
+    margin-left: 185px;
+}
+.druidSkillTree .skillButton16{
+    margin-top: 321px;
+    margin-left: 185px;
+}
+.druidSkillTree .skillButton17{
+    margin-top: 404px;
+    margin-left: 185px;
+}
+.druidSkillTree .skillButton18{
+    margin-top: 153px;
+    margin-left: 305px;
+}
+.druidSkillTree .skillButton19{
+    margin-top: 236px;
+    margin-left: 305px;
+}
+.druidSkillTree .skillButton20{
+    margin-top: 404px;
+    margin-left: 305px;
+}
+
+.druidSkillTree .skillButton21{
+    margin-top: 153px;
+    margin-left: 62px;
+}
+.druidSkillTree .skillButton22{
+    margin-top: 321px;
+    margin-left: 62px;
+}
+.druidSkillTree .skillButton23{
+    margin-top: 486px;
+    margin-left: 62px;
+}
+.druidSkillTree .skillButton24{
+    margin-top: 68px;
+    margin-left: 185px;
+}
+.druidSkillTree .skillButton25{
+    margin-top: 153px;
+    margin-left: 185px;
+}
+.druidSkillTree .skillButton26{
+    margin-top: 321px;
+    margin-left: 185px;
+}
+.druidSkillTree .skillButton27{
+    margin-top: 486px;
+    margin-left: 185px;
+}
+.druidSkillTree .skillButton28{
+    margin-top: 68px;
+    margin-left: 305px;
+}
+.druidSkillTree .skillButton29{
+    margin-top: 236px;
+    margin-left: 305px;
+}
+.druidSkillTree .skillButton30{
+    margin-top: 404px;
+    margin-left: 305px;
+}
+/* Level  */
+#level{
+    background: transparent;
+    color: rgb(201, 159, 52);
+    border-radius: 10px;
+    font-family: Exocet Light;
+    font-weight: bold;
+    font-size: 17px;
+    display: inline;
+    width: 8%;
+}
+#lvlButton{
+    font-size: 1.25rem;
+    text-align: center;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.808);
+    font-family: Exocet Light;
+    background: rgb(2, 2, 2);
+    border-radius: 10px;
+    display: inline;
+    border-color: rgb(163, 120, 10);
+}
+#lvlButton:hover{
+    color: rgb(201, 159, 52);
+}
+#plusToSkills{
+    color:rgb(18, 88, 240);
+}
+/* Reset button */
+.reset{
+    margin-top: 17px;
+    font-size: 1.75rem;
+    text-align: center;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.808);
+    font-family: Exocet Light;
+    background: rgb(2, 2, 2);
+    border-radius: 10px;
+    border-color:  rgb(163, 120, 10);
+}
+.reset:hover{
+    color: rgb(201, 159, 52);
+}
+
+/* Quests */
+.quests{
+    font-size: 1.3rem;
+    color: rgb(201, 159, 52);
+}
+.questNames p{
+    font-size: 18px;
+    text-align:left;
+}
+.questNames button{
+    background: rgb(2, 2, 2);
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.808);
+    font-weight: bold;
+    border-radius: 10px;
+    border-color:  rgb(163, 120, 10);
+}
+
+/* Skill description */
+.skillDescription{
+    height: 825px;
+    width: 21.5rem;
+    float: left;
+    right: 0;
+    background: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(8, 8, 8) 50%, rgb(5, 5, 5)100%);
+    box-shadow: 0 0 5px #fff, 0 0 6px #fff;
+    transition: width 200ms ease;
+    color: rgba(255, 255, 255, 0.808);
+    position: absolute;
+}
+.skillDescription p{
+    font-size: 30px;
+    color: rgb(201, 159, 52);
+    font-weight: bold;
+    text-align: center;
+    padding: 0;
+}
+.skillDescription div{
+    padding: 0px 20px 20px 20px;
+    font-family: Ariel;
+    font-size: 17.5px;
+}
+#skillName{
+    color: rgb(64, 201, 52);
+    text-align: center;
+    font-size: 21px;
+    margin-bottom: 0;
+    font-weight: lighter;
+}
+#infoColor{
+    color: rgba(255, 255, 255, 0.808);
+}
+/* Equipment */
+
+/* Statistics */
+
+/* Mercenary */
+
+/* Media queries */
+@media only screen and (max-width: 600px){
+    /* Class chocie page */
+    .diabloClasses{
+        top: 0;
+        width: 100vw;
+        height: 5rem;
+    }
+
+    /* Navigation bar */
+    .navbar {
+        top: 0;
+        width: 100vw;
+        height: 5rem;
+        border: 1px solid black;
+      }
+      .navbar:hover{
+        width: 100vw;
+      }
+      .Logo {
+        display: none;
+      }
+      .navbar-nav {
+        flex-direction: row;
+        justify-content: center;
+      }
+      .navbar-nav li{
+        margin: 5%;
+        margin-top: 0;
+      }
+      /* Main content */
+      main {
+        margin-top: 6rem;
+        margin-left: 0;
+      }
+      #jd{
+         display: none; 
+      }
+      #jd:hover{
+        display: none;
+      }
+}
+
+@media only screen and (min-width: 600px){
+    /* Navigation bar */
+    .navbar{
+        top:0;
+        width: 5rem;
+        height: 100vh;
+    }
+    .navbar:hover{
+        width: 16rem;
+    }
+    .navbar:hover .link-text{
+        display: inline;
+        transition: opacity var(--transition-speed);
+    }
+}
+@media (max-width: 1870px){
+    .skillTree{
+        margin-left: 0%;
+    }
+    .preSkillTree{
+        margin-left: 10px;
+    }
+}
+@media (max-width: 1710px){
+    .reminder{
+        height: 95px;
+        width: 320px;
+    }
+    .reminderText1{
+        font-size: 17px;
+    }
+    .reminderText2{
+        font-size: 12px;
+    }
+    .skillTree{
+        font-size: 1.2rem;
+    }
+    .reset{
+        margin-top: 17px;
+        font-size: 1.5rem;
+    }
+    .quests{
+        font-size: 1rem;
+    }
+    .questNames p{
+        font-size: 14px;
+    }
+    .questNames button{
+        font-size: 15px;
+    }
+    .skillDescription{
+        height: 775px;
+        width: 18rem;
+    }
+    .skillDescription p{
+        font-size: 30px;
+    }
+    .skillDescription div{
+        padding: 0px 20px 20px 20px;
+        font-size: 25px;
+    }
+    #skillName{
+        color: rgb(64, 201, 52);
+        text-align: center;
+        font-size: 22px;
+        margin-bottom: 0;
+        font-weight: lighter;
+    }
+}
+@media (max-width: 1650px){
+    .reminder{
+        height: 80px;
+        width: 260px;
+    }
+    .reminderText1{
+        font-size: 14px;
+    }
+    .reminderText2{
+        font-size: 10px;
+    }
+    .skillDescription{
+        height: 775px;
+        width: 15rem;
+    }
+    .skillDescription p{
+        font-size: 20px;
+        color: rgb(201, 159, 52);
+    }
+    .skillDescription div{
+        padding: 0px 20px 20px 20px;
+        font-size: 17px;
+    }
+    #skillName{
+        color: rgb(64, 201, 52);
+        text-align: center;
+        font-size: 18.5px;
+        margin-bottom: 0;
+        font-weight: lighter;
+    }
+}
+@media (max-width: 1600px){
+    .avalibleSkillPoints{
+        font-size: 1.8rem;
+    }
+    .skillTree{
+        width: 400px;
+        margin-left: 1%;
+    }
+    .skillTree img{
+        height: 100%;
+        width: 100%;
+    }
+    .questNames p{
+        font-size: 14px;
+    }
+    .reset{
+        margin-top: 10px;
+        font-size: 1.5rem;
+    }
+    .skillDescription{
+        height: 745px;
+        width: 15rem;
+    }
+    .skillCounter div{
+        height: 20px;
+        width: 20px;
+        border: 1px solid rgb(212, 0, 255);
+        font-size: 16px;
+    }
+    .skillButton div{
+        position: absolute;
+        height: 58px;
+        width: 58px;
+        border: 1px solid rgb(212, 0, 255);
+    }
+    .paladinSkillTree .skillCounter1{
+        margin-top: 103px;
+        margin-left: 122.5px;
+    }
+    .paladinSkillTree .skillCounter2{
+        margin-top: 258px;
+        margin-left: 122.5px;
+    }
+    .paladinSkillTree .skillCounter3{
+        margin-top: 414px;
+        margin-left: 122.5px;
+    }
+    .paladinSkillTree .skillCounter4{
+        margin-top: 181px;
+        margin-left: 237px;
+    }
+    .paladinSkillTree .skillCounter5{
+        margin-top: 337px;
+        margin-left: 237px;
+    }
+    .paladinSkillTree .skillCounter6{
+        margin-top: 491px;
+        margin-left: 237px;
+    }
+    .paladinSkillTree .skillCounter7{
+        margin-top: 103px;
+        margin-left: 349px;
+    }
+    .paladinSkillTree .skillCounter8{
+        margin-top: 181px;
+        margin-left: 349px;
+    }
+    .paladinSkillTree .skillCounter9{
+        margin-top: 257px;
+        margin-left: 349px;
+    }
+    .paladinSkillTree .skillCounter10{
+        margin-top: 491px;
+        margin-left: 349px;
+    }
+
+    .paladinSkillTree .skillCounter11{
+        margin-top: 103px;
+        margin-left: 122.5px;
+    }
+    .paladinSkillTree .skillCounter12{
+        margin-top: 257px;
+        margin-left: 122.5px;
+    }
+    .paladinSkillTree .skillCounter13{
+        margin-top: 337px;
+        margin-left: 122.5px;
+    }
+    .paladinSkillTree .skillCounter14{
+        margin-top: 491px;
+        margin-left: 122.5px;
+    }
+    .paladinSkillTree .skillCounter15{
+        margin-top: 181px;
+        margin-left: 237px;
+    }
+    .paladinSkillTree .skillCounter16{
+        margin-top: 337px;
+        margin-left: 237px;
+    }
+    .paladinSkillTree .skillCounter17{
+        margin-top: 414px;
+        margin-left: 237px;
+    }
+    .paladinSkillTree .skillCounter18{
+        margin-top: 181px;
+        margin-left: 349px;
+    }
+    .paladinSkillTree .skillCounter19{
+        margin-top: 414px;
+        margin-left: 349px;
+    }
+    .paladinSkillTree .skillCounter20{
+        margin-top: 491px;
+        margin-left: 349px;
+    }
+    
+    .paladinSkillTree .skillCounter21{
+        margin-top: 103px;
+        margin-left: 122.5px;
+    }
+    .paladinSkillTree .skillCounter22{
+        margin-top: 257px;
+        margin-left: 122.5px;
+    }
+    .paladinSkillTree .skillCounter23{
+        margin-top: 337px;
+        margin-left: 122.5px;
+    }
+    .paladinSkillTree .skillCounter24{
+        margin-top: 414px;
+        margin-left: 122.5px;
+    }
+    .paladinSkillTree .skillCounter25{
+        margin-top: 181px;
+        margin-left: 237px;
+    }
+    .paladinSkillTree .skillCounter26{
+        margin-top: 337px;
+        margin-left: 237px;
+    }
+    .paladinSkillTree .skillCounter27{
+        margin-top: 491px;
+        margin-left: 237px;
+    }
+    .paladinSkillTree .skillCounter28{
+        margin-top: 103px;
+        margin-left: 349px;
+    }
+    .paladinSkillTree .skillCounter29{
+        margin-top: 257px;
+        margin-left: 349px;
+    }
+    .paladinSkillTree .skillCounter30{
+        margin-top: 414px;
+        margin-left: 349px;
+    }
+
+    .paladinSkillTree .skillButton1{
+        margin-top: 63px;
+        margin-left: 57px;
+    }
+    .paladinSkillTree .skillButton2{
+        margin-top: 218px;
+        margin-left: 57px;
+    }
+    .paladinSkillTree .skillButton3{
+        margin-top: 375px;
+        margin-left: 57px;
+    }
+    .paladinSkillTree .skillButton4{
+        margin-top: 143px;
+        margin-left: 172px;
+    }
+    .paladinSkillTree .skillButton5{
+        margin-top: 297px;
+        margin-left: 172px;
+    }
+    .paladinSkillTree .skillButton6{
+        margin-top: 452px;
+        margin-left: 172px;
+    }
+    .paladinSkillTree .skillButton7{
+        margin-top: 63px;
+        margin-left: 283px;
+    }
+    .paladinSkillTree .skillButton8{
+        margin-top: 143px;
+        margin-left: 283px;
+    }
+    .paladinSkillTree .skillButton9{
+        margin-top: 218px;
+        margin-left: 283px;
+    }
+    .paladinSkillTree .skillButton10{
+        margin-top: 452px;
+        margin-left: 283px;
+    }
+
+    .paladinSkillTree .skillButton11{
+        margin-top: 63px;
+        margin-left: 57px;
+    }
+    .paladinSkillTree .skillButton12{
+        margin-top: 218px;
+        margin-left: 57px;
+    }
+    .paladinSkillTree .skillButton13{
+        margin-top: 297px;
+        margin-left: 57px;
+    }
+    .paladinSkillTree .skillButton14{
+        margin-top: 452px;
+        margin-left: 57px;
+    }
+    .paladinSkillTree .skillButton15{
+        margin-top: 143px;
+        margin-left: 172px;
+    }
+    .paladinSkillTree .skillButton16{
+        margin-top: 297px;
+        margin-left: 172px;
+    }
+    .paladinSkillTree .skillButton17{
+        margin-top: 375px;
+        margin-left: 172px;
+    }
+    .paladinSkillTree .skillButton18{
+        margin-top: 143px;
+        margin-left: 283px;
+    }
+    .paladinSkillTree .skillButton19{
+        margin-top: 375px;
+        margin-left: 283px;
+    }
+    .paladinSkillTree .skillButton20{
+        margin-top: 452px;
+        margin-left: 283px;
+    }
+
+    .paladinSkillTree .skillButton21{
+        margin-top: 63px;
+        margin-left: 57px;
+    }
+    .paladinSkillTree .skillButton22{
+        margin-top: 218px;
+        margin-left: 57px;
+    }
+    .paladinSkillTree .skillButton23{
+        margin-top: 297px;
+        margin-left: 57px;
+    }
+    .paladinSkillTree .skillButton24{
+        margin-top: 375px;
+        margin-left: 57px;
+    }
+    .paladinSkillTree .skillButton25{
+        margin-top: 143px;
+        margin-left: 172px;
+    }
+    .paladinSkillTree .skillButton26{
+        margin-top: 297px;
+        margin-left: 172px;
+    }
+    .paladinSkillTree .skillButton27{
+        margin-top: 452px;
+        margin-left: 172px;
+    }
+    .paladinSkillTree .skillButton28{
+        margin-top: 63px;
+        margin-left: 283px;
+    }
+    .paladinSkillTree .skillButton29{
+        margin-top: 218px;
+        margin-left: 283px;
+    }
+    .paladinSkillTree .skillButton30{
+        margin-top: 375px;
+        margin-left: 283px;
+    }
+}
+@media (max-width: 1550px){
+    .skillTree{
+        width: 400px;
+        margin-left: 0%;
+    }
+}
+@media (max-width: 1500px){
+    .skillDescription{
+        height: 725px;
+        width: 11.5rem;
+    }
+    .skillDescription p{
+        font-size: 18px;
+        color: rgb(201, 159, 52);
+    }
+    .skillDescription div{
+        padding: 0px 25px 5px 5px;
+        font-size: 15px;
+    }
+    #skillName{
+        font-size: 16px;
+    }
+    .reminder{
+        width: 220px;
+    }
+    .reminderText2{
+        font-size: 8px;
+    }
+}
+@media (max-width: 1450px){
+    .skillDescription{
+        height: 725px;
+        width: 8.5rem;
+    }
+    .skillDescription p{
+        font-size: 14px;
+        color: rgb(201, 159, 52);
+        padding-right: 25px;
+    }
+    .skillDescription div{
+        padding: 0px 25px 5px 5px;
+        font-size: 12px;
+    }
+    #skillName{
+        color: rgb(64, 201, 52);
+        text-align: center;
+        font-size: 12px;
+        margin-bottom: 0;
+        font-weight: lighter;
+    }
+    .reminder{
+        width: 170px;
+    }
+    .reminderText1{
+        font-size: 12px;
+    }
+    .reminderText2{
+        font-size: 7.5px;
+    }
+}
+@media (max-width: 1366px){
+    .skillTree{
+        width: 335px;
+        margin-left: 2%;
+    }
+    .skillCounter div{
+        height: 18px;
+        width: 18px;
+        border: 1px solid rgb(0, 255, 85);
+        font-size: 15px;
+    }
+    .skillButton div{
+        position: absolute;
+        height: 48px;
+        width: 48px;
+        border: 1px solid rgb(0, 255, 85);
+    }
+    .paladinSkillTree .skillCounter1{
+        margin-top: 85px;
+        margin-left: 101.5px;
+    }
+    .paladinSkillTree .skillCounter2{
+        margin-top: 216px;
+        margin-left: 101.5px;
+    }
+    .paladinSkillTree .skillCounter3{
+        margin-top: 347px;
+        margin-left: 101.5px;
+    }
+    .paladinSkillTree .skillCounter4{
+        margin-top: 152px;
+        margin-left: 197px;
+    }
+    .paladinSkillTree .skillCounter5{
+        margin-top: 283px;
+        margin-left: 198px;
+    }
+    .paladinSkillTree .skillCounter6{
+        margin-top: 412px;
+        margin-left: 198px;
+    }
+    .paladinSkillTree .skillCounter7{
+        margin-top: 85px;
+        margin-left: 292px;
+    }
+    .paladinSkillTree .skillCounter8{
+        margin-top: 152px;
+        margin-left: 292px;
+    }
+    .paladinSkillTree .skillCounter9{
+        margin-top: 216px;
+        margin-left: 292px;
+    }
+    .paladinSkillTree .skillCounter10{
+        margin-top: 412px;
+        margin-left: 292px;
+    }
+
+    .paladinSkillTree .skillCounter11{
+        margin-top: 85px;
+        margin-left: 101.5px;
+    }
+    .paladinSkillTree .skillCounter12{
+        margin-top: 216px;
+        margin-left: 101.5px;
+    }
+    .paladinSkillTree .skillCounter13{
+        margin-top: 283px;
+        margin-left: 101.5px;
+    }
+    .paladinSkillTree .skillCounter14{
+        margin-top: 412px;
+        margin-left: 101.5px;
+    }
+    .paladinSkillTree .skillCounter15{
+        margin-top: 152px;
+        margin-left: 198px;
+    }
+    .paladinSkillTree .skillCounter16{
+        margin-top: 283px;
+        margin-left: 198px;
+    }
+    .paladinSkillTree .skillCounter17{
+        margin-top: 347px;
+        margin-left: 198px;
+    }
+    .paladinSkillTree .skillCounter18{
+        margin-top: 152px;
+        margin-left: 292px;
+    }
+    .paladinSkillTree .skillCounter19{
+        margin-top: 347px;
+        margin-left: 292px;
+    }
+    .paladinSkillTree .skillCounter20{
+        margin-top: 412px;
+        margin-left: 292px;
+    }
+    
+    .paladinSkillTree .skillCounter21{
+        margin-top: 85px;
+        margin-left: 101.5px;
+    }
+    .paladinSkillTree .skillCounter22{
+        margin-top: 216px;
+        margin-left: 101.5px;
+    }
+    .paladinSkillTree .skillCounter23{
+        margin-top: 283px;
+        margin-left: 101.5px;
+    }
+    .paladinSkillTree .skillCounter24{
+        margin-top: 347px;
+        margin-left: 101.5px;
+    }
+    .paladinSkillTree .skillCounter25{
+        margin-top: 152px;
+        margin-left: 198px;
+    }
+    .paladinSkillTree .skillCounter26{
+        margin-top: 283px;
+        margin-left: 198px;
+    }
+    .paladinSkillTree .skillCounter27{
+        margin-top: 412px;
+        margin-left: 198px;
+    }
+    .paladinSkillTree .skillCounter28{
+        margin-top: 85px;
+        margin-left: 292px;
+    }
+    .paladinSkillTree .skillCounter29{
+        margin-top: 216px;
+        margin-left: 292px;
+    }
+    .paladinSkillTree .skillCounter30{
+        margin-top: 347px;
+        margin-left: 292px;
+    }
+
+    .paladinSkillTree .skillButton1{
+        margin-top: 53px;
+        margin-left: 48px;
+    }
+    .paladinSkillTree .skillButton2{
+        margin-top: 184px;
+        margin-left: 48px;
+    }
+    .paladinSkillTree .skillButton3{
+        margin-top: 315px;
+        margin-left: 48px;
+    }
+    .paladinSkillTree .skillButton4{
+        margin-top: 120px;
+        margin-left: 144px;
+    }
+    .paladinSkillTree .skillButton5{
+        margin-top: 250px;
+        margin-left: 144px;
+    }
+    .paladinSkillTree .skillButton6{
+        margin-top: 379px;
+        margin-left: 144px;
+    }
+    .paladinSkillTree .skillButton7{
+        margin-top: 53px;
+        margin-left: 237px;
+    }
+    .paladinSkillTree .skillButton8{
+        margin-top: 120px;
+        margin-left: 237px;
+    }
+    .paladinSkillTree .skillButton9{
+        margin-top: 184px;
+        margin-left: 237px;
+    }
+    .paladinSkillTree .skillButton10{
+        margin-top: 379px;
+        margin-left: 237px;
+    }
+
+    .paladinSkillTree .skillButton11{
+        margin-top: 53px;
+        margin-left: 48px;
+    }
+    .paladinSkillTree .skillButton12{
+        margin-top: 184px;
+        margin-left: 48px;
+    }
+    .paladinSkillTree .skillButton13{
+        margin-top: 250px;
+        margin-left: 48px;
+    }
+    .paladinSkillTree .skillButton14{
+        margin-top: 379px;
+        margin-left: 48px;
+    }
+    .paladinSkillTree .skillButton15{
+        margin-top: 120px;
+        margin-left: 144px;
+    }
+    .paladinSkillTree .skillButton16{
+        margin-top: 250px;
+        margin-left: 144px;
+    }
+    .paladinSkillTree .skillButton17{
+        margin-top: 315px;
+        margin-left: 144px;
+    }
+    .paladinSkillTree .skillButton18{
+        margin-top: 120px;
+        margin-left: 237px;
+    }
+    .paladinSkillTree .skillButton19{
+        margin-top: 315px;
+        margin-left: 237px;
+    }
+    .paladinSkillTree .skillButton20{
+        margin-top: 379px;
+        margin-left: 237px;
+    }
+
+    .paladinSkillTree .skillButton21{
+        margin-top: 53px;
+        margin-left: 48px;
+    }
+    .paladinSkillTree .skillButton22{
+        margin-top: 184px;
+        margin-left: 48px;
+    }
+    .paladinSkillTree .skillButton23{
+        margin-top: 250px;
+        margin-left: 48px;
+    }
+    .paladinSkillTree .skillButton24{
+        margin-top: 315px;
+        margin-left: 48px;
+    }
+    .paladinSkillTree .skillButton25{
+        margin-top: 120px;
+        margin-left: 144px;
+    }
+    .paladinSkillTree .skillButton26{
+        margin-top: 250px;
+        margin-left: 144px;
+    }
+    .paladinSkillTree .skillButton27{
+        margin-top: 379px;
+        margin-left: 144px;
+    }
+    .paladinSkillTree .skillButton28{
+        margin-top: 53px;
+        margin-left: 237px;
+    }
+    .paladinSkillTree .skillButton29{
+        margin-top: 184px;
+        margin-left: 237px;
+    }
+    .paladinSkillTree .skillButton30{
+        margin-top: 315px;
+        margin-left: 237px;
+    }
+}
+@media (max-width: 1280px){
+    .skillTree{
+        width: 335px;
+        margin-left: 0%;
+    }
+    .skillDescription{
+        height: 655px;
+        width: 11rem;
+    }
+    .skillDescription p{
+        font-size: 16px;
+        color: rgb(201, 159, 52);
+        text-align: center;
+    }
+    .skillDescription div{
+        padding: 0px 25px 5px 5px;
+        font-size: 13px;
+    }
+    #skillName{
+        color: rgb(64, 201, 52);
+        text-align: center;
+        font-size: 14px;
+        margin-bottom: 0;
+        font-weight: lighter;
+    }
+    .link-text{
+        display: none;
+        margin-left: 1rem;
+        color: rgb(201, 159, 52);
+    }
+    .navbar:hover{
+        width: 5rem;
+    }
+    .navbar:hover .link-text{
+        display: none;
+    }
+    .navbar img{
+        height: 40px;
+        width: 40px;
+        margin-left: 0px;
+        padding: 0px;
+    }
+    .Logo img{
+        height: 45px;
+        width: 45px;
+    }
+    .nav-linkLogo{
+        display: flex;
+        align-items: center;
+        height: 5rem;
+        color: var(--text-primary);
+        text-decoration: none;
+    }
+    .reminder{
+        width: 200px;
+    }
+    .reminderText1{
+        font-size: 15px;
+    }
+    .reminderText2{
+        font-size: 9px;
+    }
+}
