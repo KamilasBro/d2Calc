@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" href="images/d2Icon.png">
     <link rel="stylesheet" href="D2Calc.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <meta charset="UTF-8">
@@ -9,55 +10,9 @@
     <title>Diablo 2 Resurrected Calculator</title>
 </head>
 <body>
-    <!-- Navigation bar -->
-    <nav class="navbar" id="navbar">
-        <ul class="navbar-nav">
-            <div id="refresh2"></div><!-- needed cuz during refreshing little square is visible-->
-            <li class="Logo">
-                <span href="#" class="nav-linkLogo">
-                    <img src="images/Navbar/Logo.png" alt="Logo">
-                    <span class="link-text" id="jd">Calculator</span>
-                </span>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link" id="Menulink">
-                    <img src="images/Navbar/menuimg.png" alt="Logo">
-                    <span class="link-text" id="jd">Classes</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link" id="Skills">
-                    <img src="images/Navbar/skilltreeimg.png" alt="Logo">
-                    <span class="link-text" id="jd">SkillTrees</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link" id="Equipment">
-                    <img src="images/Navbar/equipmentimg.png" alt="Logo">
-                    <span class="link-text" id="jd">Equipment</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link" id="Statistics">
-                    <img src="images/Navbar/statsimg.png" alt="Logo">
-                    <span class="link-text" id="jd">Statistics</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link" id="Mercenary">
-                    <img src="images/Navbar/mercenaryimg.png" alt="Logo">
-                    <span class="link-text" id="jd">Mercenary</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
     <div id="refresh"></div><!-- needed cuz during refreshing some loading things are visible-->
     <!-- Main Content -->
     <main id="main">
-        <div class="reminder" id="reminder">
-            <span class="reminderText1">Reminder</span><br>
-            <span class="reminderText2" id="reminderText2">You must set your level first !</span>
-        </div>
         <!-- to make one .js file pepeHands -->
         <span id="classPicked">Sorceress</span>
         <!-- Skill trees page -->
@@ -208,8 +163,66 @@
             </span>
             </div>
         </div>
+        <div class="reminder" id="reminder">
+            <span class="reminderText1">Reminder</span><br>
+            <span class="reminderText2" id="reminderText2">You must set your level first !</span>
+        </div>
         </span>
+        <!-- Equipment page page -->
+        <div id="eqPage">
+            <p>Currently in development...</p>
+        </div>
+        <!-- Statistics page page -->
+        <div id="statPage">
+            <p>Currently in development...</p>
+        </div>
+        <!-- Mercenary page page -->
+        <div id="mercPage">
+            <p>Currently in development...</p>
+        </div>
     </main>
+    <!-- Navigation bar -->
+    <nav class="navbar" id="navbar">
+        <ul class="navbar-nav">
+            <div id="refresh2"></div><!-- needed cuz during refreshing little square is visible-->
+            <li class="Logo">
+                <span href="#" class="nav-linkLogo">
+                    <img src="images/Navbar/Logo.png" alt="Logo">
+                    <span class="link-text" id="jd">Calculator</span>
+                </span>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link" id="Menulink">
+                    <img src="images/Navbar/menuimg.png" alt="Logo">
+                    <span class="link-text" id="jd">Classes</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link" id="Skills">
+                    <img src="images/Navbar/skilltreeimg.png" alt="Logo">
+                    <span class="link-text" id="jd">SkillTrees</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link" id="Equipment">
+                    <img src="images/Navbar/equipmentimg.png" alt="Logo">
+                    <span class="link-text" id="jd">Equipment</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link" id="Statistics">
+                    <img src="images/Navbar/statsimg.png" alt="Logo">
+                    <span class="link-text" id="jd">Statistics</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link" id="Mercenary">
+                    <img src="images/Navbar/mercenaryimg.png" alt="Logo">
+                    <span class="link-text" id="jd">Mercenary</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
     <!-- Refresh screen -->
     <div class="loader-wrapper">
         <span class="loader"><img class="refreshImg" src="images/refreshImg.webp" alt=""></span>

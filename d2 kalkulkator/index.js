@@ -6,7 +6,6 @@ const paladinPick=document.querySelector("#paladinPick");
 const sorceressPick=document.querySelector("#sorceressPick");
 const druidPick=document.querySelector("#druidPick");
 const classChoice=document.querySelector("#classChoice");
-document.body.style.background="rgb(2,2,2)";
 $(window).on("load",function(){
     $(".loader-wrapper").fadeOut("slow");
   });
@@ -30,4 +29,9 @@ sorceressPick.addEventListener("click",e=>{
 });
 druidPick.addEventListener("click",e=>{
     window.location.href = 'druid.html';
+});
+const patchImg=document.querySelector("#patchImg");
+
+patchImg.addEventListener("click",e=>{
+    window.location.href = 'https://news.blizzard.com/en-us/diablo2/23814050/diablo-ii-resurrected-patch-2-4-3-now-live';
 });

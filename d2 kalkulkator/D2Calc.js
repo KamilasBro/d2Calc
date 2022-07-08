@@ -1,6 +1,5 @@
 //Pre building
 {   
-    document.getElementById("main").style.marginLeft="5rem";
     document.getElementById("refresh").style.display="block";
     document.getElementById("refresh2").style.display="block";
     $(window).on("load",function(){
@@ -49,19 +48,31 @@ const Statistics=document.querySelector("#Statistics");
 const Mercenary=document.querySelector("#Mercenary");
 
 Menulink.addEventListener("click",e=>{
-    window.location.href = 'index.html';
+    window.location.href = 'D2RCalc.html';
 });
 Skills.addEventListener("click",e=>{
     document.getElementById("skillTreePage").style.display="block";
+    document.getElementById("eqPage").style.display="none";
+    document.getElementById("statPage").style.display="none";
+    document.getElementById("mercPage").style.display="none";
 });
 Equipment.addEventListener("click",e=>{
     document.getElementById("skillTreePage").style.display="none";
+    document.getElementById("eqPage").style.display="block";
+    document.getElementById("statPage").style.display="none";
+    document.getElementById("mercPage").style.display="none";
 });
 Statistics.addEventListener("click",e=>{
     document.getElementById("skillTreePage").style.display="none";
+    document.getElementById("eqPage").style.display="none";
+    document.getElementById("statPage").style.display="block";
+    document.getElementById("mercPage").style.display="none";
 });
 Mercenary.addEventListener("click",e=>{
     document.getElementById("skillTreePage").style.display="none";
+    document.getElementById("eqPage").style.display="none";
+    document.getElementById("statPage").style.display="none";
+    document.getElementById("mercPage").style.display="block";
 });
 }
 
@@ -72,7 +83,7 @@ function reminder1()
 {   
     reminderDelaycostam=false;
     document.getElementById("reminder").style.display="block";
-    document.getElementById("reminderText2").innerHTML="You must set your level first !";
+    document.getElementById("reminderText2").innerHTML="You must set your level first!";
     setTimeout(reminderClose,2000);
 
 }
@@ -80,7 +91,7 @@ function reminder2()
 {   
     reminderDelaycostam=false;
     document.getElementById("reminder").style.display="block";
-    document.getElementById("reminderText2").innerHTML="You don't have any Skill Points left !";
+    document.getElementById("reminderText2").innerHTML="You don't have any Skill Points left!";
     setTimeout(reminderClose,2000);
 
 }
@@ -88,7 +99,7 @@ function reminder3()
 {   
     reminderDelaycostam=false;
     document.getElementById("reminder").style.display="block";
-    document.getElementById("reminderText2").innerHTML="This skill is already maxed";
+    document.getElementById("reminderText2").innerHTML="This skill is already maxed!";
     setTimeout(reminderClose,2000);
 
 }
@@ -96,7 +107,7 @@ function reminder4()
 {   
     reminderDelaycostam=false;
     document.getElementById("reminder").style.display="block";
-    document.getElementById("reminderText2").innerHTML="You don't match level requirements for this skill";
+    document.getElementById("reminderText2").innerHTML="You don't match level requirements for this skill!";
     setTimeout(reminderClose,2000);
 
 }
@@ -104,7 +115,47 @@ function reminder5()
 {   
     reminderDelaycostam=false;
     document.getElementById("reminder").style.display="block";
-    document.getElementById("reminderText2").innerHTML="You need to unlock paths for this skill";
+    document.getElementById("reminderText2").innerHTML="You need to unlock paths for this skill!";
+    setTimeout(reminderClose,2000);
+
+}
+function reminder6()
+{   
+    reminderDelaycostam=false;
+    document.getElementById("reminder").style.display="block";
+    document.getElementById("reminderText2").innerHTML="You have less than 10 Skill Points left!";
+    setTimeout(reminderClose,2000);
+
+}
+function reminder7()
+{   
+    reminderDelaycostam=false;
+    document.getElementById("reminder").style.display="block";
+    document.getElementById("reminderText2").innerHTML="You need to remove Skill Points from further skills!";
+    setTimeout(reminderClose,2000);
+
+}
+function reminder8()
+{   
+    reminderDelaycostam=false;
+    document.getElementById("reminder").style.display="block";
+    document.getElementById("reminderText2").innerHTML="There is no Skill Points invested in that skill!";
+    setTimeout(reminderClose,2000);
+
+}
+function reminder9()
+{   
+    reminderDelaycostam=false;
+    document.getElementById("reminder").style.display="block";
+    document.getElementById("reminderText2").innerHTML="Insert level value between 1 and 99!";
+    setTimeout(reminderClose,2000);
+
+}
+function reminder10()
+{   
+    reminderDelaycostam=false;
+    document.getElementById("reminder").style.display="block";
+    document.getElementById("reminderText2").innerHTML="Release control button!";
     setTimeout(reminderClose,2000);
 
 }
@@ -156,6 +207,13 @@ document.getElementById("plusToSkills").innerHTML=plusToSkills;
 }
 avalibleSkillPointsUpdate();
 //skill events
+var keyName;
+document.addEventListener('keydown', (event) => {
+    keyName = event.key;
+}, false);
+document.addEventListener('keyup', (event) => {
+    keyName = "none";
+}, false);
 {
 skillButton1.addEventListener("click",e=>{
     skillAdding(0);
@@ -167,6 +225,10 @@ skillButton1.addEventListener("mouseover",e=>{
 skillButton1.addEventListener("mouseleave",e=>{
     document.getElementById("descriptionContent").style.display="none";
 });
+skillButton1.oncontextmenu = function () {
+    skillRemoving(0);
+    return false;
+};
 
 skillButton2.addEventListener("click",e=>{
     skillAdding(1);
@@ -178,6 +240,10 @@ skillButton2.addEventListener("mouseover",e=>{
 skillButton2.addEventListener("mouseleave",e=>{
     document.getElementById("descriptionContent").style.display="none";
 });
+skillButton2.oncontextmenu = function () {
+    skillRemoving(1);
+    return false;
+};
 
 skillButton3.addEventListener("click",e=>{
     skillAdding(2);
@@ -189,6 +255,10 @@ skillButton3.addEventListener("mouseover",e=>{
 skillButton3.addEventListener("mouseleave",e=>{
     document.getElementById("descriptionContent").style.display="none";
 });
+skillButton3.oncontextmenu = function () {
+    skillRemoving(2);
+    return false;
+};
 
 skillButton4.addEventListener("click",e=>{
     skillAdding(3);
@@ -200,6 +270,10 @@ skillButton4.addEventListener("mouseover",e=>{
 skillButton4.addEventListener("mouseleave",e=>{
     document.getElementById("descriptionContent").style.display="none";
 });
+skillButton4.oncontextmenu = function () {
+    skillRemoving(3);
+    return false;
+};
 
 skillButton5.addEventListener("click",e=>{
     skillAdding(4);
@@ -211,6 +285,10 @@ skillButton5.addEventListener("mouseover",e=>{
 skillButton5.addEventListener("mouseleave",e=>{
     document.getElementById("descriptionContent").style.display="none";
 });
+skillButton5.oncontextmenu = function () {
+    skillRemoving(4);
+    return false;
+};
 
 skillButton6.addEventListener("click",e=>{
     skillAdding(5);
@@ -222,6 +300,10 @@ skillButton6.addEventListener("mouseover",e=>{
 skillButton6.addEventListener("mouseleave",e=>{
     document.getElementById("descriptionContent").style.display="none";
 });
+skillButton6.oncontextmenu = function () {
+    skillRemoving(5);
+    return false;
+};
 
 skillButton7.addEventListener("click",e=>{
     skillAdding(6);
@@ -233,6 +315,10 @@ skillButton7.addEventListener("mouseover",e=>{
 skillButton7.addEventListener("mouseleave",e=>{
     document.getElementById("descriptionContent").style.display="none";
 });
+skillButton7.oncontextmenu = function () {
+    skillRemoving(6);
+    return false;
+};
 
 skillButton8.addEventListener("click",e=>{
     skillAdding(7);
@@ -244,6 +330,10 @@ skillButton8.addEventListener("mouseover",e=>{
 skillButton8.addEventListener("mouseleave",e=>{
     document.getElementById("descriptionContent").style.display="none";
 });
+skillButton8.oncontextmenu = function () {
+    skillRemoving(7);
+    return false;
+};
 
 skillButton9.addEventListener("click",e=>{
     skillAdding(8);
@@ -255,6 +345,10 @@ skillButton9.addEventListener("mouseover",e=>{
 skillButton9.addEventListener("mouseleave",e=>{
     document.getElementById("descriptionContent").style.display="none";
 });
+skillButton9.oncontextmenu = function () {
+    skillRemoving(8);
+    return false;
+};
 
 skillButton10.addEventListener("click",e=>{
     skillAdding(9);
@@ -266,6 +360,10 @@ skillButton10.addEventListener("mouseover",e=>{
 skillButton10.addEventListener("mouseleave",e=>{
     document.getElementById("descriptionContent").style.display="none";
 });
+skillButton10.oncontextmenu = function () {
+    skillRemoving(9);
+    return false;
+};
 
 skillButton11.addEventListener("click",e=>{
     skillAdding(10);
@@ -277,6 +375,10 @@ skillButton11.addEventListener("mouseover",e=>{
 skillButton11.addEventListener("mouseleave",e=>{
     document.getElementById("descriptionContent").style.display="none";
 });
+skillButton11.oncontextmenu = function () {
+    skillRemoving(10);
+    return false;
+};
 
 skillButton12.addEventListener("click",e=>{
     skillAdding(11);
@@ -288,6 +390,10 @@ skillButton12.addEventListener("mouseover",e=>{
 skillButton12.addEventListener("mouseleave",e=>{
     document.getElementById("descriptionContent").style.display="none";
 });
+skillButton12.oncontextmenu = function () {
+    skillRemoving(11);
+    return false;
+};
 
 skillButton13.addEventListener("click",e=>{
     skillAdding(12);
@@ -299,6 +405,10 @@ skillButton13.addEventListener("mouseover",e=>{
 skillButton13.addEventListener("mouseleave",e=>{
     document.getElementById("descriptionContent").style.display="none";
 });
+skillButton13.oncontextmenu = function () {
+    skillRemoving(12);
+    return false;
+};
 
 skillButton14.addEventListener("click",e=>{
     skillAdding(13);
@@ -310,6 +420,10 @@ skillButton14.addEventListener("mouseover",e=>{
 skillButton14.addEventListener("mouseleave",e=>{
     document.getElementById("descriptionContent").style.display="none";
 });
+skillButton14.oncontextmenu = function () {
+    skillRemoving(13);
+    return false;
+};
 
 skillButton15.addEventListener("click",e=>{
     skillAdding(14);
@@ -321,6 +435,10 @@ skillButton15.addEventListener("mouseover",e=>{
 skillButton15.addEventListener("mouseleave",e=>{
     document.getElementById("descriptionContent").style.display="none";
 });
+skillButton15.oncontextmenu = function () {
+    skillRemoving(14);
+    return false;
+};
 
 skillButton16.addEventListener("click",e=>{
     skillAdding(15);
@@ -332,6 +450,10 @@ skillButton16.addEventListener("mouseover",e=>{
 skillButton16.addEventListener("mouseleave",e=>{
     document.getElementById("descriptionContent").style.display="none";
 });
+skillButton16.oncontextmenu = function () {
+    skillRemoving(15);
+    return false;
+};
 
 skillButton17.addEventListener("click",e=>{
     skillAdding(16);
@@ -343,6 +465,10 @@ skillButton17.addEventListener("mouseover",e=>{
 skillButton17.addEventListener("mouseleave",e=>{
     document.getElementById("descriptionContent").style.display="none";
 });
+skillButton17.oncontextmenu = function () {
+    skillRemoving(16);
+    return false;
+};
 
 skillButton18.addEventListener("click",e=>{
     skillAdding(17);
@@ -354,6 +480,10 @@ skillButton18.addEventListener("mouseover",e=>{
 skillButton18.addEventListener("mouseleave",e=>{
     document.getElementById("descriptionContent").style.display="none";
 });
+skillButton18.oncontextmenu = function () {
+    skillRemoving(17);
+    return false;
+};
 
 skillButton19.addEventListener("click",e=>{
     skillAdding(18);
@@ -365,6 +495,10 @@ skillButton19.addEventListener("mouseover",e=>{
 skillButton19.addEventListener("mouseleave",e=>{
     document.getElementById("descriptionContent").style.display="none";
 });
+skillButton19.oncontextmenu = function () {
+    skillRemoving(18);
+    return false;
+};
 
 skillButton20.addEventListener("click",e=>{
     skillAdding(19);
@@ -376,6 +510,10 @@ skillButton20.addEventListener("mouseover",e=>{
 skillButton20.addEventListener("mouseleave",e=>{
     document.getElementById("descriptionContent").style.display="none";
 });
+skillButton20.oncontextmenu = function () {
+    skillRemoving(19);
+    return false;
+};
 
 skillButton21.addEventListener("click",e=>{
     skillAdding(20);
@@ -387,6 +525,10 @@ skillButton21.addEventListener("mouseover",e=>{
 skillButton21.addEventListener("mouseleave",e=>{
     document.getElementById("descriptionContent").style.display="none";
 });
+skillButton21.oncontextmenu = function () {
+    skillRemoving(20);
+    return false;
+};
 
 skillButton22.addEventListener("click",e=>{
     skillAdding(21);
@@ -398,6 +540,10 @@ skillButton22.addEventListener("mouseover",e=>{
 skillButton22.addEventListener("mouseleave",e=>{
     document.getElementById("descriptionContent").style.display="none";
 });
+skillButton22.oncontextmenu = function () {
+    skillRemoving(21);
+    return false;
+};
 
 skillButton23.addEventListener("click",e=>{
     skillAdding(22);
@@ -409,6 +555,10 @@ skillButton23.addEventListener("mouseover",e=>{
 skillButton23.addEventListener("mouseleave",e=>{
     document.getElementById("descriptionContent").style.display="none";
 });
+skillButton23.oncontextmenu = function () {
+    skillRemoving(22);
+    return false;
+};
 
 skillButton24.addEventListener("click",e=>{
     skillAdding(23);
@@ -420,6 +570,10 @@ skillButton24.addEventListener("mouseover",e=>{
 skillButton24.addEventListener("mouseleave",e=>{
     document.getElementById("descriptionContent").style.display="none";
 });
+skillButton24.oncontextmenu = function () {
+    skillRemoving(23);
+    return false;
+};
 
 skillButton25.addEventListener("click",e=>{
     skillAdding(24);
@@ -431,6 +585,10 @@ skillButton25.addEventListener("mouseover",e=>{
 skillButton25.addEventListener("mouseleave",e=>{
     document.getElementById("descriptionContent").style.display="none";
 });
+skillButton25.oncontextmenu = function () {
+    skillRemoving(24);
+    return false;
+};
 
 skillButton26.addEventListener("click",e=>{
     skillAdding(25);
@@ -442,6 +600,10 @@ skillButton26.addEventListener("mouseover",e=>{
 skillButton26.addEventListener("mouseleave",e=>{
     document.getElementById("descriptionContent").style.display="none";
 });
+skillButton26.oncontextmenu = function () {
+    skillRemoving(25);
+    return false;
+};
 
 skillButton27.addEventListener("click",e=>{
     skillAdding(26);
@@ -453,6 +615,10 @@ skillButton27.addEventListener("mouseover",e=>{
 skillButton27.addEventListener("mouseleave",e=>{
     document.getElementById("descriptionContent").style.display="none";
 });
+skillButton27.oncontextmenu = function () {
+    skillRemoving(26);
+    return false;
+};
 
 skillButton28.addEventListener("click",e=>{
     skillAdding(27);
@@ -464,6 +630,10 @@ skillButton28.addEventListener("mouseover",e=>{
 skillButton28.addEventListener("mouseleave",e=>{
     document.getElementById("descriptionContent").style.display="none";
 });
+skillButton28.oncontextmenu = function () {
+    skillRemoving(27);
+    return false;
+};
 
 skillButton29.addEventListener("click",e=>{
     skillAdding(28);
@@ -475,6 +645,10 @@ skillButton29.addEventListener("mouseover",e=>{
 skillButton29.addEventListener("mouseleave",e=>{
     document.getElementById("descriptionContent").style.display="none";
 });
+skillButton29.oncontextmenu = function () {
+    skillRemoving(28);
+    return false;
+};
 
 skillButton30.addEventListener("click",e=>{
     skillAdding(29);
@@ -486,6 +660,10 @@ skillButton30.addEventListener("mouseover",e=>{
 skillButton30.addEventListener("mouseleave",e=>{
     document.getElementById("descriptionContent").style.display="none";
 });
+skillButton30.oncontextmenu = function () {
+    skillRemoving(29);
+    return false;
+};
 }
 function skillAdding(i)
 {
@@ -2349,22 +2527,85 @@ function skillAdding(i)
             if(baseSkillPoints1[i]<20)
             {   
                 if(skillRequirements[i]<lvl)
-                {
-                    baseSkillPoints1[i]++;
-                    skillRequirements[i]++;
-                    avalibleSkillPoints--;
-                    avalibleSkillPointsUpdate();
-                    plusToSkillsColor()
-                    descriptionUpdate(i);
+                {   
+                    if(keyName=='Control')
+                    {   
+                        if(avalibleSkillPoints<10)
+                        {
+                            if(reminderDelaycostam==true)
+                            reminder6()
+                        }
+                        else
+                        {
+                            if(baseSkillPoints1[i]>10)
+                            {
+                                avalibleSkillPoints=avalibleSkillPoints-(20-baseSkillPoints1[i]);
+                                skillRequirements[i]=skillRequirements[i]+(20-baseSkillPoints1[i]);
+                            }
+                            else
+                            {
+                                avalibleSkillPoints-=10;
+                                skillRequirements[i]+=10;
+                            }
+                            baseSkillPoints1[i]+=10;
+                            if(baseSkillPoints1[i]>20)
+                            {
+                                baseSkillPoints1[i]=20;
+                            }
+                            avalibleSkillPointsUpdate();
+                            plusToSkillsColor();
+                            descriptionUpdate(i);
+                        } 
+                    }
+                    else
+                    {
+                        baseSkillPoints1[i]++;
+                        skillRequirements[i]++;
+                        avalibleSkillPoints--;
+                        avalibleSkillPointsUpdate();
+                        plusToSkillsColor();
+                        descriptionUpdate(i);
+                    }
                 }
                 else if(skillRequirements[i]==1)
                 {
-                    baseSkillPoints1[i]++;
-                    skillRequirements[i]++;
-                    avalibleSkillPoints--;
-                    avalibleSkillPointsUpdate();
-                    plusToSkillsColor()
-                    descriptionUpdate(i);
+                    if(keyName=='Control')
+                    {   
+                        if(avalibleSkillPoints<10)
+                        {
+                            console.log("siema");
+                        }
+                        else
+                        {
+                        if(baseSkillPoints1[i]>10)
+                        {
+                            avalibleSkillPoints=avalibleSkillPoints-(20-baseSkillPoints1[i]);
+                            skillRequirements[i]=skillRequirements[i]+(20-baseSkillPoints1[i]);
+                        }
+                        else
+                        {
+                            avalibleSkillPoints-=10;
+                            skillRequirements[i]+=10;
+                        }
+                        baseSkillPoints1[i]+=10;
+                        if(baseSkillPoints1[i]>20)
+                        {
+                            baseSkillPoints1[i]=20;
+                        }
+                        avalibleSkillPointsUpdate();
+                        plusToSkillsColor()
+                        descriptionUpdate(i);
+                    }
+                    }
+                    else
+                    {
+                        baseSkillPoints1[i]++;
+                        skillRequirements[i]++;
+                        avalibleSkillPoints--;
+                        avalibleSkillPointsUpdate();
+                        plusToSkillsColor()
+                        descriptionUpdate(i);
+                    }
                 }
                 else
                 {
@@ -2385,6 +2626,2719 @@ function skillAdding(i)
         }
     }
 }
+}
+function skillRemoving(i)
+{   
+    if(isLvlSet==true)
+    {
+    skillRemoving1(i);
+    if(baseSkillPoints1[i]>=0)
+    document.getElementById("skillCounter"+(i+1)).innerHTML=baseSkillPoints1[i]+plusToSkills;
+    if(baseSkillPoints1[i]==0)
+    {
+        document.getElementById("skillCounter"+(i+1)).innerHTML="";
+    }
+    }
+    else
+    {   
+        if(reminderDelaycostam==true)
+        reminder1()
+    }
+    function skillRemoving1(i)
+    {
+        switch(classPicked)
+    {
+        case "Amazon":
+            switch(i)
+            {
+                case 0:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[1]>=1||baseSkillPoints1[3]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 1:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[2]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 2:
+                    skillRemoving2(i);
+                break;
+                case 3:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[4]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 4:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[5]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 5:
+                    skillRemoving2(i);
+                break;
+                case 6:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[5]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 7:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[4]>=1||baseSkillPoints1[8]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 8:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[9]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 9:
+                    skillRemoving2(i);
+                break;
+                case 10:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[11]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 11:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[12]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 12:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[13]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 13:
+                    skillRemoving2(i);
+                break;
+                case 14:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[15]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 15:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[16]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 16:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[13]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 17:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[18]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 18:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[19]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 19:
+                    skillRemoving2(i);
+                break;
+                case 20:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[21]>=1||baseSkillPoints1[25]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 21:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[22]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 22:
+                    skillRemoving2(i);
+                break;
+                case 23:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[24]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 24:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[25]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 25:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[26]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 26:
+                    skillRemoving2(i);
+                break;
+                case 27:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[28]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 28:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[29]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 29:
+                    skillRemoving2(i);
+                break;
+            }
+        break;   
+        case "Assassin":
+            switch(i)
+            {
+                case 0:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[1]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 1:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[2]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 2:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[5]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 3:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[4]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 4:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[5]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 5:
+                    skillRemoving2(i);
+                break;
+                case 6:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[7]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 7:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[8]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 8:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[9]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 9:
+                    skillRemoving2(i);
+                break;
+                case 10:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[11]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 11:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[12]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 12:
+                    skillRemoving2(i);
+                break;
+                case 13:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[10]>=1||baseSkillPoints1[14]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 14:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[15]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 15:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[16]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 16:
+                    skillRemoving2(i);
+                break;
+                case 17:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[18]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 18:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[19]>=1||baseSkillPoints1[15]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 19:
+                    skillRemoving2(i);
+                break;
+                case 20:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[21]>=1||baseSkillPoints1[25]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 21:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[22]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 22:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[24]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 23:
+                    skillRemoving2(i);
+                break;
+                case 24:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[25]>=1||baseSkillPoints1[20]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 25:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[26]>=1||baseSkillPoints1[28]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 26:
+                    skillRemoving2(i);
+                break;
+                case 27:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[28]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 28:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[29]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 29:
+                    skillRemoving2(i);
+                break;
+            }
+        break;
+        case "Necromancer":
+            switch(i)
+            {
+                case 0:
+                    skillRemoving2(i);
+                break;
+                case 1:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[2]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 2:
+                    skillRemoving2(i);
+                break;
+                case 3:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[1]>=1||baseSkillPoints1[4]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 4:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[5]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 5:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[6]>=1||baseSkillPoints1[9]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 6:
+                    skillRemoving2(i);
+                break;
+                case 7:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[0]>=1||baseSkillPoints1[8]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 8:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[9]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 9:
+                    skillRemoving2(i);
+                break;
+                case 10:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[11]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 11:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[12]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 12:
+                    skillRemoving2(i);
+                break;
+                case 13:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[14]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 14:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[11]>=1||baseSkillPoints1[15]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 15:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[16]>=1||baseSkillPoints1[19]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 16:
+                    skillRemoving2(i);
+                break;
+                case 17:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[18]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 18:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[19]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 19:
+                    skillRemoving2(i);
+                break;
+                case 20:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[21]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 21:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[22]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 22:
+                    skillRemoving2(i);
+                break;
+                case 23:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[24]>=1|baseSkillPoints1[27]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 24:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[25]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 25:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[26]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 26:
+                    skillRemoving2(i);
+                break;
+                case 27:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[28]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 28:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[29]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 29:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[29]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+            }
+        break;        
+        case "Barbarian":
+            switch(i)
+            {
+                case 0:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[1]>=1||baseSkillPoints1[4]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 1:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[2]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 2:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[3]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 3:
+                    skillRemoving2(i);
+                break;
+                case 4:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[5]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 5:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[3]>=1||baseSkillPoints1[6]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 6:
+                    skillRemoving2(i);
+                break;
+                case 7:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[8]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 8:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[9]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 9:
+                    skillRemoving2(i);
+                break;
+                case 10:
+                    skillRemoving2(i);
+                break;
+                case 11:
+                    skillRemoving2(i);
+                break;
+                case 12:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[13]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 13:
+                    skillRemoving2(i);
+                break;
+                case 14:
+                    skillRemoving2(i);
+                break;
+                case 15:
+                    skillRemoving2(i);
+                break;
+                case 16:
+                    skillRemoving2(i);
+                break;
+                case 17:
+                    skillRemoving2(i);
+                break;
+                case 18:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[19]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 19:
+                    skillRemoving2(i);
+                break;
+                case 20:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[21]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 21:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[22]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 22:
+                    skillRemoving2(i);
+                break;
+                case 23:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[24]>=1|baseSkillPoints1[27]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 24:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[25]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 25:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[26]>=1||baseSkillPoints1[22]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 26:
+                    skillRemoving2(i);
+                break;
+                case 27:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[28]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 28:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[29]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 29:
+                    skillRemoving2(i);
+                break;
+            }
+        break;
+        case "Paladin":
+            switch(i)
+            {
+                case 0:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[1]>=1||baseSkillPoints1[4]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 1:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[2]>=1||baseSkillPoints1[4]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 2:
+                    skillRemoving2(i);
+                break;
+                case 3:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[4]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 4:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[5]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 5:
+                    skillRemoving2(i);
+                break;
+                case 6:
+                    skillRemoving2(i);
+                break;
+                case 7:
+                    skillRemoving2(i);
+                break;
+                case 8:
+                    skillRemoving2(i);
+                break;
+                case 9:
+                    skillRemoving2(i);
+                break;
+                case 10:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[11]>=1||baseSkillPoints1[14]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 11:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[12]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 12:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[13]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 13:
+                    skillRemoving2(i);
+                break;
+                case 14:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[15]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 15:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[16]>=1||baseSkillPoints1[18]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 16:
+                    skillRemoving2(i);
+                break;
+                case 17:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[18]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 18:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[19]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 19:
+                    skillRemoving2(i);
+                break;
+                case 20:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[21]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 21:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[22]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 22:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[23]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 23:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[26]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 24:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[25]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 25:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[26]>=1||baseSkillPoints1[29]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 26:
+                    skillRemoving2(i);
+                break;
+                case 27:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[28]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 28:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[29]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 29:
+                    skillRemoving2(i);
+                break;
+            }
+        break;   
+        case "Sorceress":
+            switch(i)
+            {
+                case 0:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[1]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 1:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[2]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 2:
+                    skillRemoving2(i);
+                break;
+                case 3:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[4]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 4:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[5]>=1||baseSkillPoints1[8]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 5:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[1]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 6:
+                    skillRemoving2(i);
+                break;
+                case 7:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[8]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 8:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[9]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 9:
+                    skillRemoving2(i);
+                break;
+                case 10:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[11]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 11:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[12]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 12:
+                    skillRemoving2(i);
+                break;
+                case 13:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[14]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 14:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[15]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 15:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[12]>=1||baseSkillPoints1[19]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 16:
+                    skillRemoving2(i);
+                break;
+                case 17:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[18]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 18:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[19]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 19:
+                    skillRemoving2(i);
+                break;
+                case 20:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[21]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 21:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[22]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 22:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[25]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 23:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[24]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 24:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[25]>=1||baseSkillPoints1[28]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 25:
+                    skillRemoving2(i);
+                break;
+                case 26:
+                    skillRemoving2(i);
+                break;
+                case 27:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[28]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 28:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[29]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 29:
+                    skillRemoving2(i);
+                break;
+            }
+        break;   
+        case "Druid":
+            switch(i)
+            {
+                case 0:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[1]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 1:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[2]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 2:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[3]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 3:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[4]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 4:
+                    skillRemoving2(i);
+                break;
+                case 5:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[6]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 6:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[7]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 7:
+                    skillRemoving2(i);
+                break;
+                case 8:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[9]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 9:
+                    skillRemoving2(i);
+                break;
+                case 10:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[11]>=1||baseSkillPoints1[14]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 11:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[12]>=1||baseSkillPoints1[15]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 12:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[13]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 13:
+                    skillRemoving2(i);
+                break;
+                case 14:
+                    skillRemoving2(i);
+                break;
+                case 15:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[16]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 16:
+                    skillRemoving2(i);
+                break;
+                case 17:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[18]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 18:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[15]>=1||baseSkillPoints1[19]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 19:
+                    skillRemoving2(i);
+                break;
+                case 20:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[21]>=1||baseSkillPoints1[25]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 21:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[22]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 22:
+                    skillRemoving2(i);
+                break;
+                case 23:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[24]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 24:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[25]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 25:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[26]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 26:
+                    skillRemoving2(i);
+                break;
+                case 27:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[28]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 28:
+                    if(baseSkillPoints1[i]==1)
+                    {
+                        if(baseSkillPoints1[29]>=1)
+                        {
+                            reminder7();
+                        }
+                        else
+                        {
+                            skillRemoving2(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRemoving2(i);
+                    }
+                break;
+                case 29:
+                    skillRemoving2(i);
+                break;
+            }
+        break;   
+    }
+        function skillRemoving2(i)
+        {   
+            if(keyName=='Control')
+            {
+                if(baseSkillPoints1[i]>0)
+                {   
+                    if(baseSkillPoints1[i]<=10)
+                    {   
+                        if(baseSkillPoints1[i]==1)
+                        {
+                            reminder10();
+                        }
+                        else
+                        {
+                        avalibleSkillPoints=avalibleSkillPoints+baseSkillPoints1[i]-1;
+                        skillRequirements[i]=skillRequirements[i]-baseSkillPoints1[i]+1;
+                        baseSkillPoints1[i]=1;
+                        avalibleSkillPointsUpdate();
+                        plusToSkillsColor()
+                        descriptionUpdate(i);
+                        }
+                    }
+                    else
+                    {
+                        skillRequirements[i]-=10;
+                        avalibleSkillPoints+=10;
+                        baseSkillPoints1[i]-=10;
+                        avalibleSkillPointsUpdate();
+                        plusToSkillsColor()
+                        descriptionUpdate(i);
+                    }
+                }
+            }
+            else
+            {
+                if(baseSkillPoints1[i]>0)
+                {
+                    baseSkillPoints1[i]--;
+                    skillRequirements[i]--;
+                    avalibleSkillPoints++;
+                    avalibleSkillPointsUpdate();
+                    plusToSkillsColor()
+                    descriptionUpdate(i);
+                }
+                else
+                {
+                    reminder8()
+                }
+            }
+        }
+    }
 }
 function avalibleSkillPointsUpdate()
 {
@@ -2418,6 +5372,10 @@ function plusToSkillsColor()
         document.getElementById("level").style.display="none";
         document.getElementById("lvlCounter").style.display="inline";
         document.getElementById("lvlCounter").innerHTML=" "+lvl;
+        }
+        else
+        {
+            reminder9()
         }
     }
 }
@@ -7877,12 +10835,12 @@ function descriptionUpdate(i)
             {
                 case "Amazon":
                     infoDisplay()
-                    document.getElementById("skillName").innerHTML="Lightning Sentry";
-                    document.getElementById("skillDescription").innerHTML="A trap that emits charged bolts at enemies that pass near,br>Shoots 5 times<br>Releases 5 charged bolts";
+                    document.getElementById("skillName").innerHTML="Freezing Arrow";
+                    document.getElementById("skillDescription").innerHTML="Magically enhances an arrow or bolt to freeze entire groups of monsters<br>Radius: 3.3 yards";
                     document.getElementById("reqLvl").innerHTML="Required level: "+skillRequirements[i];
-                    document.getElementById("nextSkillInfo").innerHTML="Next level<br>Lightning damage: 1-"+chargedBoltSentry.lightDmg[baseSkillPoints1[i]]+"<br>Mana cost: 13<br>";
-                    document.getElementById("currentSkillInfo").innerHTML="Current skill level: "+(baseSkillPoints1[i]+plusToSkills)+" <br>[base: "+baseSkillPoints1[i]+"] <br>Lightning damage: 1-"+chargedBoltSentry.lightDmg[baseSkillPoints1[i]-1]+"<br>Mana cost: 13<br>";
-                    document.getElementById("bonuses").innerHTML="<span id='skillName'>Charged Bolt Sentry receives bonuses from:</span><br>Shock Web: +1 bolts per 3 levels[+"+baseSkillPoints1[20]/3+"]<br>Lightning Sentry: +1 shots per 4 levels [+"+baseSkillPoints1[21]/4+"%]<br>Fire Blast: +9% Lightning damage per level [+"+9*baseSkillPoints1[24]+"%]<br>Lightning Sentry: +9% lightning damage per level [+"+9*baseSkillPoints1[22]+"%]<br>";
+                    document.getElementById("nextSkillInfo").innerHTML="Next level<br>Attack rating: +"+freezingArrow.attackRating[baseSkillPoints1[i]]+"%<br>Cold damage: "+freezingArrow.minColdDmg[baseSkillPoints1[i]]+"-"+freezingArrow.maxColdDmg[baseSkillPoints1[i]]+"<br>Freezes for 2 seconds<br>Mana cost: "+freezingArrow.manaCost[baseSkillPoints1[i]]+"<br>";
+                    document.getElementById("currentSkillInfo").innerHTML="Current skill level: "+(baseSkillPoints1[i]+plusToSkills)+" <br>[base: "+baseSkillPoints1[i]+"] <br>Attack rating: +"+freezingArrow.attackRating[baseSkillPoints1[i]-1]+"%<br>Cold damage: "+freezingArrow.minColdDmg[baseSkillPoints1[i]-1]+"-"+freezingArrow.maxColdDmg[baseSkillPoints1[i]-1]+"<br>Freezes for 2 seconds<br>Mana cost: "+freezingArrow.manaCost[baseSkillPoints1[i]-1]+"<br><br>";
+                    document.getElementById("bonuses").innerHTML="<span id='skillName'>Freezing Arrow receives bonuses from:</span><br>Cold Arrow: +12% cold damage per level [+"+12*baseSkillPoints1[20]+"%]<br>Ice Arrow: +5% freeze lenght per level [+"+5*baseSkillPoints1[21]+"%]<br>";
                     if(baseSkillPoints1[i]==0)
                     {
                         document.getElementById("currentSkillInfo").style.display="none";

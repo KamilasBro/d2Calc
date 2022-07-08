@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="images/d2Icon.png">
+    <link rel="stylesheet" href="D2Calc.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diablo II Resurrected Calculator</title>
+</head>
+<body>
+    <!-- Main Content -->
+    <main id="mainClassesChoice">
+        <!-- CLass choice page -->
+        <div class="classChoicePageLeft"></div>
+        <div class="classChoicePageMid" id="classChoicePage">
+    <!-- Class navigation bar -->
+    <div class="classesWrapper">
+        <nav class="diabloClasses" id="classChoice">
+            <img src="images/Selecthero/amazonImg.PNG" alt="" id="amazonPick">
+            <img src="images/Selecthero/assassinImg.PNG" alt="" id="assassinPick">
+            <img src="images/Selecthero/necromancerImg.PNG" alt="" id="necromancerPick">
+            <img src="images/Selecthero/barbarianImg.PNG"alt="" id="barbarianPick">
+            <img src="images/Selecthero/paladinImg.PNG" alt="" id="paladinPick">
+            <img src="images/Selecthero/sorceressImg.PNG"alt="" id="sorceressPick">
+            <img src="images/Selecthero/druidImg.PNG" alt="" id="druidPick">
+        </nav>
+    </div>
+        <p>Diablo II Resurrected Calculator Demo</p>
+        <p>Current Patch:</p>
+        <div class="banner-wrapper"><img src="images/patchBanner.jpg" alt="" id="patchImg"></div>
+        <p>About Project:</p>
+        <div class="textMainSite">
+            Diablo 2 Resurrected Calculator has not been completed due to lack of easy data availability <span class="textColor">(There is no API for diablo 2 resurrected at this moment atleast from what I've found out)</span>
+            and because of that, it didn't even make sense to make all features, which without data, won't work, and if I try to gather data myself, it will take ages to complete it.<br><br>
+            Calculator just shows skilltree and skills up to 20 lvl without calculating whole synergies.<br>
+            Everything works nearly the same as in diablo 2.<br>
+            Maybe one day this project will be finished...
+        </div>
+        <p>How to use</p>
+        <div class="textMainSite">
+            Click on desired character image on top of the website, 
+            then set your level and click LMB to add points or RMB to remove points.<br><br>
+            Pay attention to skilltree pathing.<br>
+            Holding ctrl increases adding or removing points by 10.
+        </div>
+        </div>
+        <div class="classChoicePageRight"></div>
+    </main>
+    <div class="loader-wrapper">
+        <span class="loader"><img class="refreshImg" src="images/refreshImg.webp" alt=""></span>
+      </div>
+    <script src="index.js"></script>
+</body>
+</html>
