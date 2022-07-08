@@ -48,7 +48,7 @@ const Statistics=document.querySelector("#Statistics");
 const Mercenary=document.querySelector("#Mercenary");
 
 Menulink.addEventListener("click",e=>{
-    window.location.href = 'D2RCalc.html';
+    window.location.href = 'index.html';
 });
 Skills.addEventListener("click",e=>{
     document.getElementById("skillTreePage").style.display="block";
