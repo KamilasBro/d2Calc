@@ -26,7 +26,7 @@ body{
     font-style: normal;
     font-weight: normal;
     src: local('Diablo Heavy'), url('diablo.woff') format('woff');
-    }
+}
 @keyframes glow{
     from
     {
@@ -13180,6 +13180,11 @@ body::-webkit-scrollbar-thumb{
         margin-left: 0px;
         margin-bottom: 550px;
     }
+    .diabloClasses img{
+    width: 10%;
+    margin: 2%;
+    filter: brightness(175%) opacity(1);
+}
     .skillDescription{
         position: static;
         margin-left: 5%;
