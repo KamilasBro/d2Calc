@@ -9,3 +9,5 @@ User can hold control key and use LMB to add 10 points at a time or use RMB and 
 More information on the page.
 # Problems
 Diablo 2 Reurrected currently don't have API with skill damage for each level of that skill etc. so as one person I can't make this website to work as intended.
+# Preview
+https://diablo2resurrectedcalculator.netlify.app/
